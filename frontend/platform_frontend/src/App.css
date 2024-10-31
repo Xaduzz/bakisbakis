@@ -1,0 +1,408 @@
+/* Основные стили для приложения */
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c; /* Чёрный фон */
+  color: #d4f7dc; /* Светло-зелёный текст */
+}
+
+/* Фиксированный header */
+.App-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0a4724; /* Тёмно-зелёный */
+  color: #d4f7dc;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Основной контейнер */
+.App main {
+  margin-top: 100px;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Навигация */
+.navigation {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.navigation a,
+.navigation button {
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #d4f7dc;
+  background-color: #004d26;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation button:hover {
+  background-color: #006837;
+}
+
+.navigation .active {
+  background-color: #006837;
+}
+
+/* Кнопка выхода */
+.navigation button {
+  background-color: #993333;
+}
+
+.navigation button:hover {
+  background-color: #b33333;
+}
+
+/* Стиль для окна логина */
+.login-container {
+  background-color: #333333;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.login-container h2 {
+  font-size: 24px;
+  color: #d4f7dc;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+.login-container label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #b4d4bd;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px; /* Увеличен padding для выравнивания высоты с кнопкой */
+  border: 1px solid #666666;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #1c1c1c;
+  color: #d4f7dc;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  padding: 12px; /* Увеличен padding для выравнивания с полями */
+  font-size: 16px;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px; /* Дополнительный отступ сверху */
+  box-sizing: border-box;
+}
+
+.login-container button:hover {
+  background-color: #45a049;
+}
+
+
+/* Контейнер управления пользователями */
+.user-management {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  color: #d4f7dc;
+}
+
+.user-management h2 {
+  font-size: 24px;
+  color: #d4f7dc;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Форма добавления/редактирования */
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.user-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #b4d4bd;
+}
+
+.user-form input,
+.user-form select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #333333;
+  color: #d4f7dc;
+}
+
+.user-form button {
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-form button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+/* Таблицы */
+.user-table, .equipment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #1c1c1c;
+  color: #d4f7dc;
+}
+
+.user-table th, .equipment-table th,
+.user-table td, .equipment-table td {
+  padding: 12px 15px;
+  border: 1px solid #333;
+}
+
+.user-table th, .equipment-table th {
+  background-color: #0a4724;
+}
+
+.user-table tbody tr:nth-child(even),
+.equipment-table tbody tr:nth-child(even) {
+  background-color: #004d26;
+}
+
+.user-table tbody tr:hover,
+.equipment-table tbody tr:hover {
+  background-color: #006837;
+}
+
+
+
+
+/* Кнопки действий */
+.user-table .action-button,
+.equipment-table .action-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-table .delete-button,
+.equipment-table .delete-button {
+  background-color: #993333;
+}
+
+.user-table .delete-button:hover,
+.equipment-table .delete-button:hover {
+  background-color: #b33333;
+}
+
+
+
+
+
+
+/* Основная страница */
+.main-page {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.main-page h2 {
+  font-size: 28px;
+  color: #d4f7dc;
+}
+
+.main-page p {
+  font-size: 18px;
+  color: #b4d4bd;
+}
+
+
+
+
+
+
+
+/* Стиль основной страницы */
+.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #d4f7dc;
+  padding: 20px;
+}
+
+/* Контейнер сетки */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+/* Стиль для каждого окна */
+.grid-item {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.grid-item h3 {
+  font-size: 20px;
+  color: #d4f7dc;
+  margin-bottom: 15px;
+}
+
+.activity-list, .alert-list, .device-list, .config-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li, .alert-list li, .device-list li, .config-list li {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.activity-list li p, .alert-list li p, .device-list li p, .config-list li p {
+  margin: 0;
+  color: #b4d4bd;
+}
+
+.activity-list li span, .alert-list li span, .device-list li span {
+  font-size: 12px;
+  color: #666;
+}
+
+
+
+/* configurationManagement.js */
+
+/* Стиль страницы управления конфигурациями */
+.config-management {
+  padding: 20px;
+  color: #d4f7dc;
+}
+
+.config-list {
+  margin-bottom: 20px;
+}
+
+.config-list h3 {
+  font-size: 20px;
+  color: #d4f7dc;
+}
+
+.config-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.config-list li {
+  background-color: #1c1c1c;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.config-list li button {
+  background: none;
+  color: #4CAF50;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.config-list p {
+  font-size: 14px;
+  color: #b4d4bd;
+}
+
+.editor {
+  margin-top: 20px;
+}
+
+.editor h3 {
+  font-size: 20px;
+  color: #d4f7dc;
+}
+
+.editor button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.editor button:hover {
+  background-color: #45a049;
+}

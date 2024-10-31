@@ -1,0 +1,75 @@
+/* Стиль для формы добавления устройства */
+.add-device-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .add-device-form label {
+    font-size: 14px;
+    color: #b4d4bd;
+  }
+  
+  .add-device-form input {
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: #d4f7dc;
+  }
+  
+  .add-device-form button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-device-form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Стиль для списка устройств */
+  .device-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .device-list li {
+    background-color: #1c1c1c;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    color: #d4f7dc;
+  }
+  
+  /* Стиль для настроек SNMP */
+  .snmp-settings {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    color: #d4f7dc;
+  }
+  
+  .snmp-settings label {
+    display: block;
+    margin-bottom: 10px;
+    color: #b4d4bd;
+  }
+  
+  .snmp-settings input,
+  .snmp-settings select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #d4f7dc;
+  }
+  
