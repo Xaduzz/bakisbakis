@@ -1,0 +1,11 @@
+[cisco]
+10.255.255.211
+[cisco:vars]
+ansible_user=cisco
+ansible_password=cisco
+ansible_become=yes
+ansible_become_method=enable
+ansible_become_password=cisco
+ansible_network_os=cisco.ios.ios
+ansible_connection=network_cli
+

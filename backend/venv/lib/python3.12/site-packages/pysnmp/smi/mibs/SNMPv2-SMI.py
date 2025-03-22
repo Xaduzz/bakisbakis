@@ -4,6 +4,12 @@
 # Copyright (c) 2005-2020, Ilya Etingof <etingof@gmail.com>
 # License: https://www.pysnmp.com/pysnmp/license.html
 #
+# ASN.1 source file://asn1/SNMPv2-SMI
+# Produced by pysmi-1.5.8 at Sat Nov  2 15:25:23 2024
+# On host MacBook-Pro.local platform Darwin version 24.1.0 by user lextm
+# Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
+#
+# IMPORTANT: this contains customizations
 import sys
 import traceback
 
@@ -15,28 +21,10 @@ from pysnmp.proto import rfc1902
 from pysnmp.smi import error, exval
 from pysnmp.smi.indices import OidOrderedDict
 
-
-Integer, ObjectIdentifier = mibBuilder.import_symbols(
-    "ASN1", "Integer", "ObjectIdentifier"
-)
-
-(
-    ConstraintsIntersection,
-    ConstraintsUnion,
-    SingleValueConstraint,
-    ValueRangeConstraint,
-    ValueSizeConstraint,
-) = mibBuilder.import_symbols(
-    "ASN1-REFINEMENT",
-    "ConstraintsIntersection",
-    "ConstraintsUnion",
-    "SingleValueConstraint",
-    "ValueRangeConstraint",
-    "ValueSizeConstraint",
-)
-
+# IMPORTANT: customizations
 # syntax of objects
 
+ObjectIdentifier = rfc1902.ObjectIdentifier
 OctetString = rfc1902.OctetString
 Bits = rfc1902.Bits
 Integer32 = rfc1902.Integer32
@@ -47,12 +35,6 @@ Unsigned32 = rfc1902.Unsigned32
 TimeTicks = rfc1902.TimeTicks
 Opaque = rfc1902.Opaque
 Counter64 = rfc1902.Counter64
-
-
-class ExtUTCTime(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(
-        ValueSizeConstraint(11, 11), ValueSizeConstraint(13, 13)
-    )
 
 
 # MIB tree foundation class
@@ -1224,7 +1206,7 @@ class MibTableRow(MibTree):
     # some subtypes may be implicitly tagged what renders base tag
     # unavailable.
 
-    __intBaseTag = Integer.tagSet.getBaseTag()
+    __intBaseTag = Integer32.tagSet.getBaseTag()
     __strBaseTag = OctetString.tagSet.getBaseTag()
     __oidBaseTag = ObjectIdentifier.tagSet.getBaseTag()
     __ipaddrTagSet = IpAddress.tagSet
@@ -1549,72 +1531,338 @@ class MibTable(MibTree):
     def __init__(self, name):
         MibTree.__init__(self, name)
 
-
-zeroDotZero = ObjectIdentity((0, 0))
-
 # OID tree
 itu_t = MibTree((0,)).setLabel("itu-t")
 iso = MibTree((1,))
 joint_iso_itu_t = MibTree((2,)).setLabel("joint-iso-itu-t")
-org = MibIdentifier(iso.name + (3,))
-dod = MibIdentifier(org.name + (6,))
-internet = MibIdentifier(dod.name + (1,))
-directory = MibIdentifier(internet.name + (1,))
-mgmt = MibIdentifier(internet.name + (2,))
-mib_2 = MibIdentifier(mgmt.name + (1,)).setLabel("mib-2")
-transmission = MibIdentifier(mib_2.name + (10,))
-experimental = MibIdentifier(internet.name + (3,))
-private = MibIdentifier(internet.name + (4,))
-enterprises = MibIdentifier(private.name + (1,))
-security = MibIdentifier(internet.name + (5,))
-snmpV2 = MibIdentifier(internet.name + (6,))
 
-snmpDomains = MibIdentifier(snmpV2.name + (1,))
-snmpProxys = MibIdentifier(snmpV2.name + (2,))
-snmpModules = MibIdentifier(snmpV2.name + (3,))
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.import_symbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.import_symbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.import_symbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+# (ModuleCompliance,
+#  NotificationGroup) = mibBuilder.import_symbols(
+#     "SNMPv2-CONF",
+#     "ModuleCompliance",
+#     "NotificationGroup")
+
+# (Bits,
+#  Counter32,
+#  Counter64,
+#  Gauge32,
+#  Integer32,
+#  IpAddress,
+#  ModuleIdentity,
+#  MibIdentifier,
+#  NotificationType,
+#  ObjectIdentity,
+#  MibScalar,
+#  MibTable,
+#  MibTableRow,
+#  MibTableColumn,
+#  TimeTicks,
+#  Unsigned32,
+#  iso) = mibBuilder.import_symbols(
+#     "SNMPv2-SMI",
+#     "Bits",
+#     "Counter32",
+#     "Counter64",
+#     "Gauge32",
+#     "Integer32",
+#     "IpAddress",
+#     "ModuleIdentity",
+#     "MibIdentifier",
+#     "NotificationType",
+#     "ObjectIdentity",
+#     "MibScalar",
+#     "MibTable",
+#     "MibTableRow",
+#     "MibTableColumn",
+#     "TimeTicks",
+#     "Unsigned32",
+#     "iso")
+
+# (DisplayString,
+#  TextualConvention) = mibBuilder.import_symbols(
+#     "SNMPv2-TC",
+#     "DisplayString",
+#     "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class ExtUTCTime(OctetString):
+    """Custom type ExtUTCTime based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(11, 11),
+        ValueSizeConstraint(13, 13),
+    )
+
+
+
+
+
+class ObjectName(ObjectIdentifier):
+    """Custom type ObjectName based on ObjectIdentifier"""
+
+
+
+
+class NotificationName(ObjectIdentifier):
+    """Custom type NotificationName based on ObjectIdentifier"""
+
+
+
+
+# class Integer32(Integer32):
+#     """Custom type Integer32 based on Integer32"""
+#     subtypeSpec = Integer32.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueRangeConstraint(-2147483648, 2147483647),
+#     )
+
+
+
+
+
+# class IpAddress(OctetString):
+#     """Custom type IpAddress based on OctetString"""
+#     subtypeSpec = OctetString.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueSizeConstraint(4, 4),
+#     )
+#     fixedLength = 4
+
+
+
+
+
+# class Counter32(Integer32):
+#     """Custom type Counter32 based on Integer32"""
+#     subtypeSpec = Integer32.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueRangeConstraint(0, 4294967295),
+#     )
+
+
+
+
+
+# class Gauge32(Integer32):
+#     """Custom type Gauge32 based on Integer32"""
+#     subtypeSpec = Integer32.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueRangeConstraint(0, 4294967295),
+#     )
+
+
+
+
+
+# class Unsigned32(Integer32):
+#     """Custom type Unsigned32 based on Integer32"""
+#     subtypeSpec = Integer32.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueRangeConstraint(0, 4294967295),
+#     )
+
+
+
+
+
+# class TimeTicks(Integer32):
+#     """Custom type TimeTicks based on Integer32"""
+#     subtypeSpec = Integer32.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueRangeConstraint(0, 4294967295),
+#     )
+
+
+
+
+
+# class Opaque(OctetString):
+#     """Custom type Opaque based on OctetString"""
+
+
+
+
+# class Counter64(Integer32):
+#     """Custom type Counter64 based on Integer32"""
+#     subtypeSpec = Integer32.subtypeSpec
+#     subtypeSpec += ConstraintsUnion(
+#         ValueRangeConstraint(0, 18446744073709551615),
+#     )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZeroDotZero_ObjectIdentity = ObjectIdentity
+zeroDotZero = _ZeroDotZero_ObjectIdentity(
+    (0, 0)
+)
+if mibBuilder.loadTexts:
+    zeroDotZero.setStatus("current")
+if mibBuilder.loadTexts:
+    zeroDotZero.setDescription("A value used for null identifiers.")
+_Org_ObjectIdentity = ObjectIdentity
+org = _Org_ObjectIdentity(
+    (1, 3)
+)
+_Dod_ObjectIdentity = ObjectIdentity
+dod = _Dod_ObjectIdentity(
+    (1, 3, 6)
+)
+_Internet_ObjectIdentity = ObjectIdentity
+internet = _Internet_ObjectIdentity(
+    (1, 3, 6, 1)
+)
+_Directory_ObjectIdentity = ObjectIdentity
+directory = _Directory_ObjectIdentity(
+    (1, 3, 6, 1, 1)
+)
+_Mgmt_ObjectIdentity = ObjectIdentity
+mgmt = _Mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 2)
+)
+_Mib_2_ObjectIdentity = ObjectIdentity
+mib_2 = _Mib_2_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1)
+)
+_Transmission_ObjectIdentity = ObjectIdentity
+transmission = _Transmission_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10)
+)
+_Experimental_ObjectIdentity = ObjectIdentity
+experimental = _Experimental_ObjectIdentity(
+    (1, 3, 6, 1, 3)
+)
+_Private_ObjectIdentity = ObjectIdentity
+private = _Private_ObjectIdentity(
+    (1, 3, 6, 1, 4)
+)
+_Enterprises_ObjectIdentity = ObjectIdentity
+enterprises = _Enterprises_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1)
+)
+_Security_ObjectIdentity = ObjectIdentity
+security = _Security_ObjectIdentity(
+    (1, 3, 6, 1, 5)
+)
+_SnmpV2_ObjectIdentity = ObjectIdentity
+snmpV2 = _SnmpV2_ObjectIdentity(
+    (1, 3, 6, 1, 6)
+)
+_SnmpDomains_ObjectIdentity = ObjectIdentity
+snmpDomains = _SnmpDomains_ObjectIdentity(
+    (1, 3, 6, 1, 6, 1)
+)
+_SnmpProxys_ObjectIdentity = ObjectIdentity
+snmpProxys = _SnmpProxys_ObjectIdentity(
+    (1, 3, 6, 1, 6, 2)
+)
+_SnmpModules_ObjectIdentity = ObjectIdentity
+snmpModules = _SnmpModules_ObjectIdentity(
+    (1, 3, 6, 1, 6, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
 
 mibBuilder.export_symbols(
     "SNMPv2-SMI",
-    MibNode=MibNode,
-    Integer32=Integer32,
-    Bits=Bits,
-    IpAddress=IpAddress,
-    Counter32=Counter32,
-    Gauge32=Gauge32,
-    Unsigned32=Unsigned32,
-    TimeTicks=TimeTicks,
-    Opaque=Opaque,
-    Counter64=Counter64,
-    ExtUTCTime=ExtUTCTime,
-    ModuleIdentity=ModuleIdentity,
-    ObjectIdentity=ObjectIdentity,
-    NotificationType=NotificationType,
-    MibScalar=MibScalar,
-    MibScalarInstance=MibScalarInstance,
-    MibIdentifier=MibIdentifier,
-    MibTree=MibTree,
-    MibTableColumn=MibTableColumn,
-    MibTableRow=MibTableRow,
-    MibTable=MibTable,
-    zeroDotZero=zeroDotZero,
-    itu_t=itu_t,
-    iso=iso,
-    joint_iso_itu_t=joint_iso_itu_t,
-    org=org,
-    dod=dod,
-    internet=internet,
-    directory=directory,
-    mgmt=mgmt,
-    mib_2=mib_2,
-    transmission=transmission,
-    experimental=experimental,
-    private=private,
-    enterprises=enterprises,
-    security=security,
-    snmpV2=snmpV2,
-    snmpDomains=snmpDomains,
-    snmpProxys=snmpProxys,
-    snmpModules=snmpModules,
+    **{"ExtUTCTime": ExtUTCTime,
+       "ObjectName": ObjectName,
+       "NotificationName": NotificationName,
+       "Integer32": Integer32,
+       "IpAddress": IpAddress,
+       "Counter32": Counter32,
+       "Gauge32": Gauge32,
+       "Unsigned32": Unsigned32,
+       "TimeTicks": TimeTicks,
+       "Opaque": Opaque,
+       "Counter64": Counter64,
+       "zeroDotZero": zeroDotZero,
+       "org": org,
+       "dod": dod,
+       "internet": internet,
+       "directory": directory,
+       "mgmt": mgmt,
+       "mib-2": mib_2,
+       "transmission": transmission,
+       "experimental": experimental,
+       "private": private,
+       "enterprises": enterprises,
+       "security": security,
+       "snmpV2": snmpV2,
+       "snmpDomains": snmpDomains,
+       "snmpProxys": snmpProxys,
+       "snmpModules": snmpModules,
+        "ModuleIdentity": ModuleIdentity,
+        "ObjectIdentity": ObjectIdentity,
+        "NotificationType": NotificationType,
+        "MibNode": MibNode,
+        "MibScalar": MibScalar,
+        "MibScalarInstance": MibScalarInstance,
+        "MibIdentifier": MibIdentifier,
+        "MibTree": MibTree,
+        "MibTableColumn": MibTableColumn,
+        "MibTableRow": MibTableRow,
+        "MibTable": MibTable,
+        "Bits": Bits,
+        "itu-t": itu_t,
+        "iso": iso,
+        "joint_iso_itu_t": joint_iso_itu_t,
+        "mib_2": mib_2}
 )
 
 # XXX

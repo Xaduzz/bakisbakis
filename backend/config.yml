@@ -1,0 +1,22 @@
+database:
+  host: localhost
+  user: vlc
+  password: "123"
+  database: platform
+  port: "3306"
+
+snmp:
+  community: public
+  version: 2c
+  timeout: 2 #in seconds
+  retries: 3
+
+ansible:
+  username: cisco
+  password: cisco
+  path_to_playbook: /ANSIBLE_PATH/
+  log_path: /PLAYBOOK_LOG_PATH/
+
+general:
+  secret_key: supersecretkey
+  token_expiration_hours: 1

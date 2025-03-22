@@ -1,5 +1,5 @@
-// src/NetworkEquipment.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './networkEquipment.css';
 
 function NetworkEquipment() {
@@ -10,6 +10,8 @@ function NetworkEquipment() {
     version: '2c',
   });
   const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // For error display
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchDevices();
@@ -17,9 +19,21 @@ function NetworkEquipment() {
 
   const fetchDevices = async () => {
     try {
-      const res = await fetch('http://10.255.255.211:5000/devices');
-      const data = await res.json();
-      setDevices(data);
+      const token = localStorage.getItem('token');
+      const res = await fetch('http://10.255.255.218:5000/devices', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!res.ok) {
+        console.error('Failed to fetch devices:', await res.json());
+      } else {
+        const data = await res.json();
+        console.log('Fetched devices:', data);
+        setDevices(data);
+      }
     } catch (error) {
       console.error('Error fetching devices:', error);
     }
@@ -27,11 +41,15 @@ function NetworkEquipment() {
 
   const handleAddDevice = async (e) => {
     e.preventDefault();
+    setMessage('');
+    setErrorMessage(''); // Drop error message
     try {
-      const res = await fetch('http://10.255.255.211:5000/devices/add', {
+      const token = localStorage.getItem('token');
+      const res = await fetch('http://10.255.255.218:5000/devices/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ ip_address: ipAddress, ...snmpSettings }),
       });
@@ -39,13 +57,13 @@ function NetworkEquipment() {
       if (res.ok) {
         setMessage('Device added successfully');
         setIpAddress('');
-        fetchDevices(); // Refresh the device list
+        fetchDevices();
       } else {
-        setMessage(data.error || 'Failed to add device');
+        setErrorMessage(data.error || 'Failed to add device'); // Getting error message
       }
     } catch (error) {
       console.error('Error adding device:', error);
-      setMessage('Server connection error');
+      setErrorMessage('Server connection error');
     }
   };
 
@@ -53,56 +71,75 @@ function NetworkEquipment() {
     <div className="equipment-container">
       <h2>Network Equipment</h2>
 
-      {/* Форма добавления устройства */}
-      <form className="add-device-form" onSubmit={handleAddDevice}>
-        <label>
-          IP Address:
-          <input
-            type="text"
-            value={ipAddress}
-            onChange={(e) => setIpAddress(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Add Device</button>
-      </form>
-      {message && <p>{message}</p>}
+      {/* Grid Container */}
+      <div className="grid-container">
+        {/* Form to add a new device */}
+        <div className="grid-item form-container">
+          <form className="add-device-form" onSubmit={handleAddDevice}>
+            <label>
+              IP Address:
+              <input
+                type="text"
+                value={ipAddress}
+                onChange={(e) => setIpAddress(e.target.value)}
+                required
+              />
+            </label>
+            <button type="submit">Add Device</button>
+          </form>
+          {message && <p className="success-message">{message}</p>}
+          {errorMessage && <p className="error-message">{errorMessage}</p>} {/* error message */}
+        </div>
 
-      {/* Список устройств */}
-      <ul className="device-list">
-        {devices.map((device, index) => (
-          <li key={index}>
-            <p>{device.name} - {device.ip_address}</p>
-            <span>{device.status}</span>
-          </li>
-        ))}
-      </ul>
+        {/* Device list */}
+        <div className="grid-item device-list-container">
+          <h3>Device List</h3>
+          <ul className="device-list">
+            {devices.map((device, index) => (
+              <li key={index}>
+                <p>
+                  <strong>Hostname:</strong> {device.name || 'N/A'} <br />
+                  <strong>IP:</strong> {device.ip_address || 'N/A'} <br />
+                  <strong>Model:</strong> {device.model || 'N/A'} <br />
+                  <strong>Manufacturer:</strong> {device.manufacturer || 'N/A'} <br />
+                  <strong>Status:</strong> {device.status || 'N/A'}
+                </p>
+                <button onClick={() => navigate(`/devices/${device.id}`)}>
+                  View Profile
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      {/* Настройки SNMP */}
-      <div className="snmp-settings">
-        <h3>SNMP Settings</h3>
-        <label>
-          Community String:
-          <input
-            type="text"
-            value={snmpSettings.community}
-            onChange={(e) =>
-              setSnmpSettings({ ...snmpSettings, community: e.target.value })
-            }
-          />
-        </label>
-        <label>
-          SNMP Version:
-          <select
-            value={snmpSettings.version}
-            onChange={(e) =>
-              setSnmpSettings({ ...snmpSettings, version: e.target.value })
-            }
-          >
-            <option value="2c">2c</option>
-            <option value="3">3</option>
-          </select>
-        </label>
+        {/* SNMP Settings */}
+        <div className="grid-item snmp-settings-container">
+          <h3>SNMP Settings</h3>
+          <div className="snmp-settings">
+            <label>
+              Community String:
+              <input
+                type="text"
+                value={snmpSettings.community}
+                onChange={(e) =>
+                  setSnmpSettings({ ...snmpSettings, community: e.target.value })
+                }
+              />
+            </label>
+            <label>
+              SNMP Version:
+              <select
+                value={snmpSettings.version}
+                onChange={(e) =>
+                  setSnmpSettings({ ...snmpSettings, version: e.target.value })
+                }
+              >
+                <option value="2c">2c</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );

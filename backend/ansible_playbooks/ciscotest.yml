@@ -1,0 +1,48 @@
+# New Ansible Playbook
+- name: Configure Cisco Router
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+  become: yes
+  become_method: enable
+
+  tasks:
+    - name: Set hostname
+      cisco.ios.ios_hostname:
+        config:
+          hostname: "NetCentral-Router"
+
+    - name: Configure interface GigabitEthernet0/1
+      cisco.ios.ios_config:
+        lines:
+          - description "Uplink Interface"
+          - ip address 192.168.1.1 255.255.255.0
+          - no shutdown
+        parents: interface GigabitEthernet0/1
+
+    - name: Set static route
+      cisco.ios.ios_config:
+        lines:
+          - ip route 0.0.0.0 0.0.0.0 192.168.1.254
+
+    - name: Enable SSH and set console password
+      cisco.ios.ios_config:
+        lines:
+          - ip domain-name netcentral.local
+          - crypto key generate rsa modulus 2048
+          - username admin privilege 15 secret NetCentral123
+          - line vty 0 4
+          - transport input ssh
+          - login local
+          - exec-timeout 10
+
+    - name: Configure SNMP
+      cisco.ios.ios_config:
+        lines:
+          - snmp-server community public RO
+          - snmp-server location "Datacenter A"
+          - snmp-server contact "admin@netcentral.com"
+
+    - name: Save running-config
+      cisco.ios.ios_command:
+        commands: write memory

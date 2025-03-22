@@ -13,7 +13,7 @@ function UserManagement() {
   const fetchUsers = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://10.255.255.211:5000/users', {
+      const res = await fetch('http://10.255.255.218:5000/users', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -31,8 +31,8 @@ function UserManagement() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     const url = editingUserId 
-      ? `http://10.255.255.211:5000/users/${editingUserId}` 
-      : 'http://10.255.255.211:5000/users';
+      ? `http://10.255.255.218:5000/users/${editingUserId}` 
+      : 'http://10.255.255.218:5000/users';
     const method = editingUserId ? 'PUT' : 'POST';
 
     const body = { username, role };
@@ -60,11 +60,11 @@ function UserManagement() {
     }
   };
 
-  // Удаление пользователя
+  // User Deleting
   const deleteUser = async (userId) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://10.255.255.211:5000/users/${userId}`, {
+      const res = await fetch(`http://10.255.255.218:5000/users/${userId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

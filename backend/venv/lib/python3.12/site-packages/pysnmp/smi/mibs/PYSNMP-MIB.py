@@ -87,8 +87,8 @@ if mibBuilder.loadTexts:
 if mibBuilder.loadTexts:
     pysnmp.setOrganization("The PySNMP Project")
 if mibBuilder.loadTexts:
-    pysnmp.setContactInfo(
-        "E-mail: Lex Li <support@lextudio.com> GitHub: https://github.com/lextudio/pysnmp"
+    pysnmp.set_contact_info(
+        "E-mail: LeXtudio Inc. <support@lextudio.com> GitHub: https://github.com/lextudio/pysnmp"
     )
 if mibBuilder.loadTexts:
     pysnmp.setDescription("PySNMP top-level MIB tree infrastructure")

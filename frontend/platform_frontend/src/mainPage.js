@@ -10,31 +10,57 @@ function MainPage() {
 
   useEffect(() => {
     fetchRecentActivity();
-    fetchAlerts();
     fetchDevices();
     fetchConfigurations();
+  
+    const interval = setInterval(() => {
+      fetchDevices();
+      fetchConfigurations();
+      fetchRecentActivity();
+    }, 10000);
+  
+    return () => clearInterval(interval);
   }, []);
 
+
+
   const fetchRecentActivity = async () => {
-    const res = await fetch('http://10.255.255.211:5000/recent-activity');
-    const data = await res.json();
-    setRecentActivity(data);
+    try{
+      const res = await fetch('http://10.255.255.218:5000/recent-activity');
+      const data = await res.json();
+      setRecentActivity(data);
+  } catch (error){
+    console.error("Error fetching recent activity:", error);
+  }
   };
 
-  const fetchAlerts = async () => {
-    const res = await fetch('http://10.255.255.211:5000/alerts');
-    const data = await res.json();
-    setAlerts(data);
-  };
+
 
   const fetchDevices = async () => {
-    const res = await fetch('http://10.255.255.211:5000/devices');
-    const data = await res.json();
-    setDevices(data);
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch('http://10.255.255.218:5000/devices', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,  // Adding auth token
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        console.log("Device data:", data);
+        setDevices(data);  // Saving device list
+      } else {
+        console.error("Failed to fetch devices:", await res.json());
+      }
+    } catch (error) {
+      console.error("Error fetching devices:", error);
+    }
   };
 
   const fetchConfigurations = async () => {
-    const res = await fetch('http://10.255.255.211:5000/configurations');
+    const res = await fetch('http://10.255.255.218:5000/configurations');
     const data = await res.json();
     setConfigurations(data);
   };
@@ -46,13 +72,17 @@ function MainPage() {
         <div className="grid-item">
           <h3>Recent Activity</h3>
           <ul className="activity-list">
-            {recentActivity.map((activity, index) => (
+            {recentActivity.length > 0 ? (
+            recentActivity.map((activity, index) => (
               <li key={index}>
-                <p>{activity.user} on {activity.device}: {activity.action}</p>
+                <p>{activity.message}</p>
                 <span>{new Date(activity.timestamp).toLocaleString()}</span>
               </li>
-            ))}
-          </ul>
+    ))
+  ) : (
+    <p>No recent activity found.</p>
+  )}
+</ul>
         </div>
 
         {/* Alerts */}
@@ -70,15 +100,27 @@ function MainPage() {
 
         {/* Devices */}
         <div className="grid-item">
-          <h3>Devices</h3>
-          <ul className="device-list">
-            {devices.map((device, index) => (
-              <li key={index}>
-                <p>{device.name} - {device.ip_address}</p>
-                <span>{device.status}</span>
-              </li>
-            ))}
-          </ul>
+          <h3>Latest Added Devices</h3>
+          <table className="device-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Model</th>
+                <th>IP Address</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              {devices.slice(-5).map((device, index) => (
+                <tr key={index}>
+                  <td>{device.name || 'N/A'}</td>
+                  <td>{device.model || 'N/A'}</td>
+                  <td>{device.ip_address}</td>
+                  <td>{device.location}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         {/* Configurations */}
