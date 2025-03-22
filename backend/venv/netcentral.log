@@ -4109,3 +4109,139 @@
 2025-03-22 00:05:59,854 - INFO - 10.255.255.210 - - [22/Mar/2025 00:05:59] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
 2025-03-22 00:05:59,857 - INFO - Playbook playbooktest.yml updated successfully
 2025-03-22 00:05:59,857 - INFO - 10.255.255.210 - - [22/Mar/2025 00:05:59] "PUT /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-22 00:23:54,836 - INFO - Starting NetCentral backend
+2025-03-22 00:23:54,841 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.255.255.218:5000
+2025-03-22 00:23:54,841 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-22 00:23:54,841 - INFO -  * Restarting with stat
+2025-03-22 00:23:54,955 - INFO - Starting NetCentral backend
+2025-03-22 00:23:54,959 - WARNING -  * Debugger is active!
+2025-03-22 00:23:54,960 - INFO -  * Debugger PIN: 444-171-366
+2025-03-22 00:23:56,526 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:56] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:23:56,526 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:56] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:23:56,528 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:56] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:23:56,530 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:56,530 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:56] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:23:57,309 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:57,309 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:57] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:23:57,310 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:57] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:23:57,311 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:57] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:23:57,312 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:57,313 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:57] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:23:57,314 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:57] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:23:57,316 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:57] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:23:59,136 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-22 00:23:59,137 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-22 00:23:59,137 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:59,137 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:23:59,140 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:59,140 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:23:59,141 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-22 00:23:59,143 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-22 00:23:59,841 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:59,842 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:23:59,843 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:23:59,844 - INFO - 10.255.255.210 - - [22/Mar/2025 00:23:59] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:00,430 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:00] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-22 00:24:00,431 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:00] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-22 00:24:00,435 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:00] "GET /users HTTP/1.1" 200 -
+2025-03-22 00:24:00,436 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:00] "GET /users HTTP/1.1" 200 -
+2025-03-22 00:24:01,509 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:24:01,510 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:24:01,510 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:01,511 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:01,512 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:24:01,513 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:01,513 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:24:01,513 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:01,917 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-22 00:24:01,918 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:01,919 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-22 00:24:01,918 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:01,923 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:24:01,923 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:01,924 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:24:01,924 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:01] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:11,249 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:11] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:11,250 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:11] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:11,254 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:24:11,255 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:11] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:11,256 - ERROR - Error: Token has expired: Signature has expired
+2025-03-22 00:24:11,256 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:11] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-22 00:24:14,568 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:14] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-22 00:24:14,740 - INFO - User adminas logged in successfully
+2025-03-22 00:24:14,740 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:14] "POST /login HTTP/1.1" 200 -
+2025-03-22 00:24:14,758 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:14] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:14,760 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:14] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:16,027 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:16] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-22 00:24:16,028 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:16] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-22 00:24:16,029 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:16] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:16,029 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:16] "GET /playbooks HTTP/1.1" 200 -
+2025-03-22 00:24:16,031 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:16] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:16,031 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:16] "GET /playbooks HTTP/1.1" 200 -
+2025-03-22 00:24:18,621 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:18,622 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:18,622 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:18,623 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:24:18,624 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:18,624 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:18,625 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-22 00:24:18,625 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-22 00:24:18,643 - INFO - ✅ Database connection reestablished
+2025-03-22 00:24:18,644 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:18] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:29,055 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:29] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:29,056 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:29] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:29,059 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-22 00:24:29,059 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:29] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-22 00:24:29,074 - INFO - ✅ Database connection reestablished
+2025-03-22 00:24:29,075 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:29] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:39,050 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:39] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:39,050 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:39] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:39,051 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:39] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:24:39,053 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:39] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:49,056 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:49,057 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:49,057 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:24:49,059 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:24:59,045 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:59] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:24:59,046 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:59] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:24:59,046 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:59] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:24:59,048 - INFO - 10.255.255.210 - - [22/Mar/2025 00:24:59] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:25:09,042 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:09] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:25:09,043 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:25:09,044 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:25:09,046 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:09] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:25:19,044 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:19] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:25:19,045 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:19] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:25:19,047 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:19] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:25:19,052 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:19] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-22 00:25:49,055 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:25:49,056 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:25:49,056 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:25:49,058 - INFO - 10.255.255.210 - - [22/Mar/2025 00:25:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:26:49,054 - INFO - 10.255.255.210 - - [22/Mar/2025 00:26:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:26:49,055 - INFO - 10.255.255.210 - - [22/Mar/2025 00:26:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:26:49,056 - INFO - 10.255.255.210 - - [22/Mar/2025 00:26:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:26:49,058 - INFO - 10.255.255.210 - - [22/Mar/2025 00:26:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:27:49,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:27:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:27:49,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:27:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:27:49,063 - INFO - 10.255.255.210 - - [22/Mar/2025 00:27:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:27:49,064 - INFO - 10.255.255.210 - - [22/Mar/2025 00:27:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:28:49,049 - INFO - 10.255.255.210 - - [22/Mar/2025 00:28:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:28:49,050 - INFO - 10.255.255.210 - - [22/Mar/2025 00:28:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:28:49,050 - INFO - 10.255.255.210 - - [22/Mar/2025 00:28:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:28:49,052 - INFO - 10.255.255.210 - - [22/Mar/2025 00:28:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:29:49,065 - INFO - 10.255.255.210 - - [22/Mar/2025 00:29:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:29:49,066 - INFO - 10.255.255.210 - - [22/Mar/2025 00:29:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:29:49,067 - INFO - 10.255.255.210 - - [22/Mar/2025 00:29:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:29:49,069 - INFO - 10.255.255.210 - - [22/Mar/2025 00:29:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:30:49,063 - INFO - 10.255.255.210 - - [22/Mar/2025 00:30:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:30:49,063 - INFO - 10.255.255.210 - - [22/Mar/2025 00:30:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:30:49,064 - INFO - 10.255.255.210 - - [22/Mar/2025 00:30:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:30:49,066 - INFO - 10.255.255.210 - - [22/Mar/2025 00:30:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:31:49,067 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:31:49,069 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:31:49,068 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:31:49,072 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "GET /devices HTTP/1.1" 200 -
