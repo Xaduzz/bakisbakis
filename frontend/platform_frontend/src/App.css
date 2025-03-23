@@ -1,4 +1,4 @@
-/* Основные стили для приложения */
+/* main applications stylees */
 .App {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -7,16 +7,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #1c1c1c; /* Чёрный фон */
-  color: #d4f7dc; /* Светло-зелёный текст */
+  background-color: #1c1c1c; 
+  color: #d4f7dc; 
 }
 
-/* Фиксированный header */
+/* fixed header */
 .App-header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #0a4724; /* Тёмно-зелёный */
+  background-color: #0a4724; 
   color: #d4f7dc;
   padding: 10px 20px;
   display: flex;
@@ -26,7 +26,7 @@
   z-index: 1000;
 }
 
-/* Основной контейнер */
+/* main container */
 .App main {
   margin-top: 100px;
   padding: 20px;
@@ -34,7 +34,7 @@
   max-width: 1200px;
 }
 
-/* Навигация */
+
 .navigation {
   display: flex;
   gap: 10px;
@@ -72,7 +72,7 @@
   background-color: #b33333;
 }
 
-/* Стиль для окна логина */
+/* login window */
 .login-container {
   background-color: #333333;
   border-radius: 8px;
@@ -107,7 +107,7 @@
 
 .login-container input {
   width: 100%;
-  padding: 12px; /* Увеличен padding для выравнивания высоты с кнопкой */
+  padding: 12px; 
   border: 1px solid #666666;
   border-radius: 5px;
   font-size: 16px;
@@ -117,7 +117,7 @@
 }
 
 .login-container button {
-  padding: 12px; /* Увеличен padding для выравнивания с полями */
+  padding: 12px; 
   font-size: 16px;
   color: white;
   background-color: #4CAF50;
@@ -127,7 +127,7 @@
   transition: background-color 0.3s ease;
   width: 100%;
   text-align: center;
-  margin-top: 15px; /* Дополнительный отступ сверху */
+  margin-top: 15px; 
   box-sizing: border-box;
 }
 
@@ -136,7 +136,7 @@
 }
 
 
-/* Контейнер управления пользователями */
+/* userManagement container */
 .user-management {
   background-color: #1c1c1c;
   border-radius: 8px;
@@ -155,7 +155,7 @@
   text-align: center;
 }
 
-/* Форма добавления/редактирования */
+
 .user-form {
   display: flex;
   flex-direction: column;
@@ -200,7 +200,7 @@
 
 
 
-/* Таблицы */
+
 .user-table, .equipment-table {
   width: 100%;
   border-collapse: collapse;
@@ -232,7 +232,7 @@
 
 
 
-/* Кнопки действий */
+/* action buttons */
 .user-table .action-button,
 .equipment-table .action-button {
   padding: 8px 12px;
@@ -259,7 +259,7 @@
 
 
 
-/* Основная страница */
+/* main page */
 .main-page {
   text-align: center;
   margin-top: 20px;
@@ -281,7 +281,7 @@
 
 
 
-/* Стиль основной страницы */
+/* main page style */
 .main-page {
   display: flex;
   justify-content: center;
@@ -291,7 +291,7 @@
   padding: 20px;
 }
 
-/* Контейнер сетки */
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -372,7 +372,7 @@
 
 /* configurationManagement.js */
 
-/* Стиль страницы управления конфигурациями */
+/* configuration management styles */
 .config-management {
   padding: 20px;
   color: #d4f7dc;

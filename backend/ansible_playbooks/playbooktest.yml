@@ -6,4 +6,8 @@
     - name: Set SNMP location
       ios_config:
         lines:
-          - snmp-server location ciurkinydeti
+          - snmp-server location VilniusTech_Serverine
+
+    - name: Save running-config
+      cisco.ios.ios_command:
+        commands: write memory

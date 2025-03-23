@@ -471,44 +471,89 @@ def execute_playbook(filename):
     token = request.headers.get('Authorization', '').split(' ')[1]
     if not get_user_role(token):
         return jsonify({"error": "Unauthorized"}), 401
-    
+
     if not filename.endswith('.yml'):
         return jsonify({"error": "Invalid file type"}), 400
-    
-    data=request.json
+
+    data = request.json
     logging.info(f"Raw data received in POST: {data}")
     device_ip = data.get('device_ip')
 
-    ansibleUser=config['ansible']['username']
-    ansiblePassword=config['ansible']['password']
+    if not device_ip:
+        return jsonify({"error": "Missing device IP"}), 400
 
+    ansibleUser = config['ansible']['username']
+    ansiblePassword = config['ansible']['password']
 
-    logging.info(f"Executing {filename} on device {device_ip}")
-
+    
     env = {
-    **os.environ,
-    "ANSIBLE_CONFIG": "/home/vlc/bakalauro_Kodas/backend/ansible.cfg",
-    "ANSIBLE_SSH_TYPE": "paramiko"
-}
+        **os.environ,
+        "ANSIBLE_CONFIG": "/home/vlc/bakalauro_Kodas/backend/ansible.cfg",
+        "ANSIBLE_SSH_TYPE": "paramiko"
+    }
+
+    deviceProfiles = {
+        "Cisco": {
+            "network_os": "cisco.ios.ios",
+            "connection": "network_cli"
+        },
+        "MikroTik": {
+            "network_os": "routeros",
+            "connection": "network_cli"
+        }
+    }
 
     try:
+        cursor = db.cursor(dictionary=True)
+        cursor.execute("SELECT manufacturer FROM network_equipment WHERE ip_address = %s", (device_ip,))
+        device = cursor.fetchone()
+        cursor.close()
+
+        if not device:
+            return jsonify({"error": "Device not found in database"}), 404
+
+        manufacturer = device.get("manufacturer")
+        profile = deviceProfiles.get(manufacturer)
+
+        if not profile:
+            return jsonify({"error": f"Unsupported manufacturer: {manufacturer}"}), 400
+
+        network_os = profile["network_os"]
+        connection = profile["connection"]
+
+        
+        cmd = [
+            "/home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook",
+            os.path.join(ANSIBLE_PLAYBOOKS_DIR, filename),
+            "-i", f"{device_ip},",
+            "-u", ansibleUser,
+            "--extra-vars",
+            f"ansible_password={ansiblePassword} ansible_network_os={network_os} ansible_command_timeout=120 ansible_become_password=cisco "
+            f"ansible_connection={connection} target={device_ip}",
+            "--ssh-common-args", "-o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc"
+        ]
+
+        logging.info(f"Executing command: {' '.join(cmd)}")
+
         result = subprocess.run(
-            ["/home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook",
-        os.path.join(ANSIBLE_PLAYBOOKS_DIR, filename),
-        "-i", f"{device_ip},",
-        "-u", ansibleUser,
-        "--extra-vars", f"ansible_password={ansiblePassword} ansible_network_os=cisco.ios.ios ansible_connection=network_cli target={device_ip}",
-        "--ssh-common-args", "-o StrictHostKeyChecking=no"],
+            cmd,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
             env=env
         )
-        logging.info(f"Playbook {filename} executed successfully")
-        return jsonify({"message": "Execution completed", "output": result.stdout}), 200
+
+        logging.info(f"Playbook {filename} executed. Output:\n{result.stdout}")
+        return jsonify({
+            "message": "Execution completed",
+            "output": result.stdout,
+            "error": result.stderr
+        }), 200
+
     except Exception as e:
         logging.error(f"Error executing playbook {filename}: {e}")
         return jsonify({"error": "Failed to execute playbook"}), 500
+
 
 ##====================================================================
 #                       MAIN

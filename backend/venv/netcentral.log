@@ -4245,3 +4245,768 @@
 2025-03-22 00:31:49,069 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "GET /recent-activity HTTP/1.1" 200 -
 2025-03-22 00:31:49,068 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
 2025-03-22 00:31:49,072 - INFO - 10.255.255.210 - - [22/Mar/2025 00:31:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:32:49,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:32:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:32:49,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:32:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:32:49,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:32:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:32:49,065 - INFO - 10.255.255.210 - - [22/Mar/2025 00:32:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:33:49,064 - INFO - 10.255.255.210 - - [22/Mar/2025 00:33:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:33:49,065 - INFO - 10.255.255.210 - - [22/Mar/2025 00:33:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:33:49,066 - INFO - 10.255.255.210 - - [22/Mar/2025 00:33:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:33:49,068 - INFO - 10.255.255.210 - - [22/Mar/2025 00:33:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:11,714 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:11] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:34:11,715 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:11] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:11,716 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:11] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:11,718 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:11] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:12,716 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:12] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:12,718 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:12] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:14,953 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:14] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-22 00:34:14,953 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:14] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-22 00:34:14,956 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:14] "GET /users HTTP/1.1" 200 -
+2025-03-22 00:34:14,957 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:14] "GET /users HTTP/1.1" 200 -
+2025-03-22 00:34:16,267 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:16] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:16,269 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:16] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:16,269 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:16] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:16,270 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:16] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:16,271 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:16] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:16,272 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:16] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:21,160 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:21] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-22 00:34:21,160 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:21] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-22 00:34:21,163 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:21] "GET /users HTTP/1.1" 200 -
+2025-03-22 00:34:21,164 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:21] "GET /users HTTP/1.1" 200 -
+2025-03-22 00:34:21,996 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:21] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:34:21,997 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:21] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:34:22,001 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:22,003 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:22,971 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-22 00:34:22,971 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-22 00:34:22,972 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:22,974 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:22,975 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "GET /playbooks HTTP/1.1" 200 -
+2025-03-22 00:34:22,976 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:22] "GET /playbooks HTTP/1.1" 200 -
+2025-03-22 00:34:24,329 - ERROR - Error: Database query error: MySQL Connection not available.
+2025-03-22 00:34:24,330 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:24] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-22 00:34:24,330 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:24] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:24,329 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-22 00:34:24,331 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:24] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-22 00:34:24,335 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:24] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:24,362 - INFO - ✅ Database connection reestablished
+2025-03-22 00:34:24,363 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:24] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:24,364 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:24] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:35,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:35] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:34:35,064 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:35] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:35,063 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:35] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:35,067 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:35] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:45,060 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:45] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:34:45,060 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:45] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:45,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:45] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:45,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:45] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:34:55,066 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:55] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:34:55,066 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:55] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:34:55,068 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:55] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:34:55,069 - INFO - 10.255.255.210 - - [22/Mar/2025 00:34:55] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:35:05,060 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:05] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:35:05,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:05] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:35:05,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:05] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:35:05,063 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:05] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:35:15,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:15] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:35:15,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:15] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:35:15,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:15] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:35:15,064 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:15] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:35:25,055 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:25] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:35:25,057 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:25] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:35:25,056 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:25] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:35:25,059 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:25] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:35:49,058 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:35:49,059 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:35:49,060 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:35:49,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:35:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:36:49,061 - INFO - 10.255.255.210 - - [22/Mar/2025 00:36:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:36:49,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:36:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:36:49,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:36:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:36:49,063 - INFO - 10.255.255.210 - - [22/Mar/2025 00:36:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:37:49,068 - INFO - 10.255.255.210 - - [22/Mar/2025 00:37:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:37:49,069 - INFO - 10.255.255.210 - - [22/Mar/2025 00:37:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:37:49,070 - INFO - 10.255.255.210 - - [22/Mar/2025 00:37:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:37:49,071 - INFO - 10.255.255.210 - - [22/Mar/2025 00:37:49] "GET /devices HTTP/1.1" 200 -
+2025-03-22 00:38:49,062 - INFO - 10.255.255.210 - - [22/Mar/2025 00:38:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-22 00:38:49,064 - INFO - 10.255.255.210 - - [22/Mar/2025 00:38:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-22 00:38:49,065 - INFO - 10.255.255.210 - - [22/Mar/2025 00:38:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-22 00:38:49,066 - INFO - 10.255.255.210 - - [22/Mar/2025 00:38:49] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:31:17,023 - INFO - Starting NetCentral backend
+2025-03-23 16:31:17,033 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.255.255.218:5000
+2025-03-23 16:31:17,033 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 16:31:17,033 - INFO -  * Restarting with stat
+2025-03-23 16:31:17,153 - INFO - Starting NetCentral backend
+2025-03-23 16:31:17,157 - WARNING -  * Debugger is active!
+2025-03-23 16:31:17,161 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 16:31:44,055 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:31:44,057 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:31:44,056 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:31:44,058 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:31:44,059 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 16:31:44,060 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 16:31:44,062 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 16:31:44,062 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 16:31:44,063 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:31:44,064 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:44] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:31:50,589 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-23 16:31:50,760 - INFO - User adminas logged in successfully
+2025-03-23 16:31:50,761 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "POST /login HTTP/1.1" 200 -
+2025-03-23 16:31:50,776 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:31:50,779 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:31:50,779 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:31:50,780 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:31:50,781 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:31:50,783 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:31:50,784 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:31:50,786 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:50] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:31:59,959 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:59] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:31:59,959 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:59] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:31:59,961 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:59] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:31:59,962 - INFO - 10.255.255.210 - - [23/Mar/2025 16:31:59] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:32:02,012 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:02] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:32:02,012 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:02] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:32:02,014 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:02] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:32:02,014 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:02] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:32:02,016 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:02] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:32:02,016 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:02] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:32:03,407 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:03] "OPTIONS /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 16:32:03,410 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:03] "GET /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 16:32:06,805 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:06] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 16:32:06,807 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:06] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 16:32:11,632 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:11] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:32:11,634 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:32:11,634 - INFO - Executing playbooktest.yml on device 10.255.255.211
+2025-03-23 16:32:15,708 - INFO - Playbook playbooktest.yml executed successfully
+2025-03-23 16:32:15,708 - INFO - 10.255.255.210 - - [23/Mar/2025 16:32:15] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:40:44,941 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 16:40:44,963 - INFO -  * Restarting with stat
+2025-03-23 16:40:45,082 - INFO - Starting NetCentral backend
+2025-03-23 16:40:45,087 - WARNING -  * Debugger is active!
+2025-03-23 16:40:45,088 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 16:41:48,175 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 16:41:48,195 - INFO -  * Restarting with stat
+2025-03-23 16:41:48,313 - INFO - Starting NetCentral backend
+2025-03-23 16:41:48,318 - WARNING -  * Debugger is active!
+2025-03-23 16:41:48,319 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 16:43:27,452 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 16:43:27,472 - INFO -  * Restarting with stat
+2025-03-23 16:43:27,589 - INFO - Starting NetCentral backend
+2025-03-23 16:43:27,594 - WARNING -  * Debugger is active!
+2025-03-23 16:43:27,595 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 16:43:29,776 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:29] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:43:29,776 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:29] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:43:29,778 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:29] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:43:29,780 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:29] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:43:30,867 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:30] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:43:30,868 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:30] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:43:30,869 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:30] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:43:30,870 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:30] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:43:30,871 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:30] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:43:30,872 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:30] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:43:34,639 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:34] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:43:34,640 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:43:34,641 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no
+2025-03-23 16:43:38,199 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "ssh connection failed: ssh connect failed: No route to host"}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:43:38,199 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:38] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:43:47,099 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:43:47,100 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:43:47,100 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:43:47,100 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:43:47,103 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:43:47,103 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 16:43:47,104 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 16:43:47,119 - INFO - ✅ Database connection reestablished
+2025-03-23 16:43:47,120 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:43:47,122 - INFO - 10.255.255.210 - - [23/Mar/2025 16:43:47] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:44:54,728 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:54] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:44:54,728 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:54] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:44:54,736 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:54] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:44:54,738 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:54] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:44:58,725 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:58] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:44:58,725 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:58] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:44:58,727 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:58] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:44:58,727 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:58] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:44:58,728 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:58] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:44:58,729 - INFO - 10.255.255.210 - - [23/Mar/2025 16:44:58] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:45:08,094 - INFO - 10.255.255.210 - - [23/Mar/2025 16:45:08] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:45:08,096 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:45:08,096 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no
+2025-03-23 16:45:09,605 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "ssh connection failed: ssh connect failed: Connection refused"}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:45:09,606 - INFO - 10.255.255.210 - - [23/Mar/2025 16:45:09] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:46:16,484 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:46:16,486 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:46:16,485 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:16,485 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:46:16,488 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:16,489 - ERROR - Error: Database error: 2014 (HY000): Commands out of sync; you can't run this command now
+2025-03-23 16:46:16,489 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 16:46:16,488 - ERROR - Error: Database query error: MySQL Connection not available.
+2025-03-23 16:46:16,490 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 16:46:16,491 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:16] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:46:18,444 - ERROR - Error: Database query error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 16:46:18,445 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:18] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 16:46:18,446 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:18] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:18,452 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:18] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:18,488 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:18] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:46:18,489 - INFO - ✅ Database connection reestablished
+2025-03-23 16:46:18,489 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:18] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:46:18,490 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:18] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:46:28,640 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:28] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:46:28,641 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:28] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:28,643 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 16:46:28,644 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:28] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 16:46:28,663 - INFO - ✅ Database connection reestablished
+2025-03-23 16:46:28,663 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:28] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:46:38,636 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:38] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:38,637 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:38] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:46:38,638 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:38] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:46:38,639 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:38] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:46:48,455 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:48] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:46:48,456 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:48] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:46:48,455 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:48] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:48,458 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:48] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:46:58,496 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:58] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:46:58,497 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:58] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:46:58,497 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:58] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:46:58,498 - INFO - 10.255.255.210 - - [23/Mar/2025 16:46:58] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:08,639 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:08] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:47:08,640 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:08] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:47:08,641 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:08] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:47:08,642 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:08] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:18,633 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:18] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:47:18,633 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:18] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:47:18,635 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:18] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:47:18,636 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:18] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:28,639 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:28] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:47:28,641 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:28] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:47:28,640 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:28] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:47:28,642 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:28] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:38,634 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:38] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:47:38,636 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:38] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:47:38,635 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:38] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:47:38,638 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:38] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:43,133 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:43] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:47:43,133 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:43] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:47:43,134 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:43] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:43,136 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:43] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:47:43,136 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:43] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:47:43,138 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:43] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:47:46,218 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:46] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:47:46,220 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:47:46,220 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no
+2025-03-23 16:47:46,835 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "\nlibssh: The authenticity of host '10.255.255.211' can't be established due to 'Host is unknown: db:27:50:83:41:de:ca:ab:45:ed:61:48:24:75:d6:13:01:c1:f0:15'.\nThe ssh-rsa key fingerprint is SHA1:2ydQg0HeyqtF7WFIJHXWEwHB8BU."}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:47:46,835 - INFO - 10.255.255.210 - - [23/Mar/2025 16:47:46] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:51:38,210 - INFO - 10.255.255.210 - - [23/Mar/2025 16:51:38] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:51:38,211 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:51:38,212 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no
+2025-03-23 16:52:00,598 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:52:00,599 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 16:52:00,602 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 16:52:00,602 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 16:52:00,600 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:52:00,605 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 16:52:00,635 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 16:52:00,636 - INFO - ✅ Database connection reestablished
+2025-03-23 16:52:00,637 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:52:00,639 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:00] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:52:01,782 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:01] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:52:01,782 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:01] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 16:52:01,783 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:01] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:52:01,786 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:01] "GET /devices HTTP/1.1" 200 -
+2025-03-23 16:52:01,788 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:01] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:52:01,789 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:01] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 16:52:04,376 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:04] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 16:52:04,378 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:04] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 16:52:08,687 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:52:08,687 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:08] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:52:18,246 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:18] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:52:18,248 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:52:18,249 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no
+2025-03-23 16:52:48,724 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:52:48,724 - INFO - 10.255.255.210 - - [23/Mar/2025 16:52:48] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:54:15,443 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 16:54:15,462 - INFO -  * Restarting with stat
+2025-03-23 16:54:15,577 - INFO - Starting NetCentral backend
+2025-03-23 16:54:15,581 - WARNING -  * Debugger is active!
+2025-03-23 16:54:15,582 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 16:54:20,057 - INFO - 10.255.255.210 - - [23/Mar/2025 16:54:20] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:54:20,059 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:54:20,060 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 16:54:50,531 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:54:50,532 - INFO - 10.255.255.210 - - [23/Mar/2025 16:54:50] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:56:09,724 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 16:56:09,741 - INFO -  * Restarting with stat
+2025-03-23 16:56:09,856 - INFO - Starting NetCentral backend
+2025-03-23 16:56:09,861 - WARNING -  * Debugger is active!
+2025-03-23 16:56:09,862 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 16:56:13,468 - INFO - 10.255.255.210 - - [23/Mar/2025 16:56:13] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 16:56:13,470 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 16:56:13,470 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 16:57:44,585 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "failed to elevate privilege to enable mode, at prompt [b'\\nGNS-router-cisco>'] with error: enable\r\nPassword: \r\n% Password:  timeout expired!\r\nPassword: \r\n% Password:  timeout expired!\r\nPassword: \r\n% Password:  timeout expired!\r\n% Bad passwords\r\n\r\nGNS-router-cisco>"}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 16:57:44,585 - INFO - 10.255.255.210 - - [23/Mar/2025 16:57:44] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:00:14,194 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 17:00:14,216 - INFO -  * Restarting with stat
+2025-03-23 17:00:14,329 - INFO - Starting NetCentral backend
+2025-03-23 17:00:14,334 - WARNING -  * Debugger is active!
+2025-03-23 17:00:14,335 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 17:00:28,618 - INFO - 10.255.255.210 - - [23/Mar/2025 17:00:28] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:00:28,620 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:00:28,621 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=ciscoansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:00:28,866 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:00:28,866 - INFO - 10.255.255.210 - - [23/Mar/2025 17:00:28] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:00:34,723 - INFO - 10.255.255.210 - - [23/Mar/2025 17:00:34] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:00:34,724 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:00:34,725 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=ciscoansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:00:34,965 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:00:34,966 - INFO - 10.255.255.210 - - [23/Mar/2025 17:00:34] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:03:20,232 - INFO - 10.255.255.210 - - [23/Mar/2025 17:03:20] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:03:20,233 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:03:20,234 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=ciscoansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:03:20,466 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+fatal: [10.255.255.211]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:03:20,467 - INFO - 10.255.255.210 - - [23/Mar/2025 17:03:20] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:04:46,689 - INFO -  * Detected change in '/home/vlc/bakalauro_Kodas/backend/venv/app.py', reloading
+2025-03-23 17:04:46,707 - INFO -  * Restarting with stat
+2025-03-23 17:04:46,825 - INFO - Starting NetCentral backend
+2025-03-23 17:04:46,830 - WARNING -  * Debugger is active!
+2025-03-23 17:04:46,831 - INFO -  * Debugger PIN: 103-051-989
+2025-03-23 17:04:58,470 - INFO - 10.255.255.210 - - [23/Mar/2025 17:04:58] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:04:58,472 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:04:58,473 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=cisco ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:05:00,953 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+changed: [10.255.255.211]
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:05:00,954 - INFO - 10.255.255.210 - - [23/Mar/2025 17:05:00] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:06:01,663 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:01,665 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:01,664 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:01,664 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:01,667 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:01,668 - ERROR - Error: Database query error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:06:01,669 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 17:06:01,699 - INFO - ✅ Database connection reestablished
+2025-03-23 17:06:01,700 - ERROR - Error: Database query error: MySQL Connection not available.
+2025-03-23 17:06:01,700 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 17:06:01,700 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:06:01,701 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:01] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 17:06:03,810 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:03] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:03,818 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:03] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:03,846 - INFO - ✅ Database connection reestablished
+2025-03-23 17:06:03,847 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:03] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:03,847 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:03] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:03,849 - ERROR - Error: Database query error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:06:03,849 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:03] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 17:06:03,866 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:03] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:08,626 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:08] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 17:06:08,627 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:08] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 17:06:08,629 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:08] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:06:08,630 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:08] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:06:09,010 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:09,010 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:09,011 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:09,011 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:09,013 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:09,014 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:09,016 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:09,018 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:09,686 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:06:09,688 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:06:09,940 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:09,941 - ERROR - Error: Database query error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:06:09,941 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 17:06:09,944 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:09,972 - INFO - ✅ Database connection reestablished
+2025-03-23 17:06:09,973 - ERROR - Error: Database query error: MySQL Connection not available.
+2025-03-23 17:06:09,973 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 17:06:09,973 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:06:09,974 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 17:06:09,991 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:19,950 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:19] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:19,953 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:19] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:19,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:19] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:19,956 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:19] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:29,944 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:29] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:29,946 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:29] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:29,945 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:29] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:29,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:29] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:39,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:39] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:39,952 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:39] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:39,954 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:39] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:39,955 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:39] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:49,946 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:49,947 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:49,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:49] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:49,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:49] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:06:59,947 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:59] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:06:59,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:59] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:06:59,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:59] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:06:59,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:06:59] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:07:09,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:09] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:07:09,949 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:07:09,949 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:07:09,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:09] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:07:19,950 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:19] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:07:19,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:19] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:07:19,952 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:19] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:07:19,953 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:19] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:07:29,949 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:29] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:07:29,950 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:29] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:07:29,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:29] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:07:29,954 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:29] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:07:39,939 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:39] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:07:39,940 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:39] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:07:39,941 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:39] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:07:39,941 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:39] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:07:49,946 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:49] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:07:49,947 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:49] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:07:49,948 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:07:49,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:49] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 17:07:49,964 - INFO - ✅ Database connection reestablished
+2025-03-23 17:07:49,965 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:49] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:07:59,940 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:59] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:07:59,941 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:59] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:07:59,941 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:59] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:07:59,943 - INFO - 10.255.255.210 - - [23/Mar/2025 17:07:59] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:09,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:09] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:09,952 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:09] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:08:09,952 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:09] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:08:09,954 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:09] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:19,947 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:19] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:19,947 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:19] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:08:19,948 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:19] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:08:19,949 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:19] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:29,950 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:29] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:29,951 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:29] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:08:29,953 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:29] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:08:29,969 - INFO - ✅ Database connection reestablished
+2025-03-23 17:08:29,969 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:29] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:35,986 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:35] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 17:08:35,989 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:35] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 17:08:35,990 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:35] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:08:35,991 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:35] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:08:37,910 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:37] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:37,912 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:37] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:37,914 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:37] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:37,915 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:37] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:45,197 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:45] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-23 17:08:45,371 - INFO - User adminas logged in successfully
+2025-03-23 17:08:45,371 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:45] "POST /login HTTP/1.1" 200 -
+2025-03-23 17:08:45,385 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:45] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:45,387 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:45] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:45,388 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:45] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:45,390 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:45] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:46,492 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:46] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 17:08:46,494 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:46] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 17:08:46,496 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:46] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:08:46,497 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:46] "GET /users HTTP/1.1" 200 -
+2025-03-23 17:08:51,588 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-23 17:08:51,758 - INFO - User Denis logged in successfully
+2025-03-23 17:08:51,758 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "POST /login HTTP/1.1" 200 -
+2025-03-23 17:08:51,781 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:51,782 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:08:51,783 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:08:51,782 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:08:51,784 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:08:51,785 - ERROR - Error: Database error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:08:51,785 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "[35m[1mGET /recent-activity HTTP/1.1[0m" 500 -
+2025-03-23 17:08:51,802 - INFO - ✅ Database connection reestablished
+2025-03-23 17:08:51,803 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:51,804 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:51] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:52,932 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:52] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:08:52,933 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:52] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:08:52,934 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:52] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:52,937 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:52] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:08:52,937 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:52] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:08:52,939 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:52] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:08:55,326 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:55] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:08:55,327 - INFO - 10.255.255.210 - - [23/Mar/2025 17:08:55] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:05,523 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:05] "OPTIONS /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:05,525 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:05] "GET /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:10,237 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:10] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:10,239 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:10] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:36,407 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:36] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:36,409 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:36] "[31m[1mPUT /playbooks/playbooktest.yml HTTP/1.1[0m" 403 -
+2025-03-23 17:09:41,458 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:41] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:09:41,460 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:09:41,461 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=cisco ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:09:43,560 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+ok: [10.255.255.211]
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:09:43,560 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:43] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:09:48,751 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:48] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:48,753 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:48] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:58,558 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:58] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:09:58,560 - INFO - 10.255.255.210 - - [23/Mar/2025 17:09:58] "[31m[1mPUT /playbooks/playbooktest.yml HTTP/1.1[0m" 403 -
+2025-03-23 17:10:05,277 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-23 17:10:05,445 - INFO - User adminas logged in successfully
+2025-03-23 17:10:05,446 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "POST /login HTTP/1.1" 200 -
+2025-03-23 17:10:05,461 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:05,461 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:10:05,463 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:05,463 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:10:05,466 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:10:05,465 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:05,468 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:05,468 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:05] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:10:06,473 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:06] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:06,475 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:06] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:15,390 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:15] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:15,391 - INFO - Playbook playbooktest.yml updated successfully
+2025-03-23 17:10:15,392 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:15] "PUT /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:16,366 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:16] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:16,369 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:16] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:19,959 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:19] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:10:19,961 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:10:19,961 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=cisco ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:10:22,433 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+changed: [10.255.255.211]
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:10:22,433 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:22] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:10:24,558 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:24] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:24,560 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:24] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:52,367 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:10:52,369 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:10:52,368 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:10:52,367 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 17:10:52,371 - ERROR - Error: Database query error: 2013 (HY000): Lost connection to MySQL server during query
+2025-03-23 17:10:52,371 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "[35m[1mGET /devices HTTP/1.1[0m" 500 -
+2025-03-23 17:10:52,372 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 17:10:52,402 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 17:10:52,403 - INFO - ✅ Database connection reestablished
+2025-03-23 17:10:52,403 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:52] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:10:53,458 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:53] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:53,459 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:53] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:53,460 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:53] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:10:53,462 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:53] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:53,463 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:53] "GET /devices HTTP/1.1" 200 -
+2025-03-23 17:10:53,464 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:53] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:10:55,334 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:55] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:10:55,336 - INFO - 10.255.255.210 - - [23/Mar/2025 17:10:55] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:11:09,752 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:09] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:11:09,754 - INFO - Playbook playbooktest.yml updated successfully
+2025-03-23 17:11:09,754 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:09] "PUT /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:11:11,964 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:11] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:11:11,965 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:11] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:11:14,720 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:14] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:11:14,722 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:11:14,722 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=cisco ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:11:17,202 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+changed: [10.255.255.211]
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:11:17,202 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:17] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:11:45,309 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:45] "OPTIONS /playbooks/idomiauTikGyvenimas.yml HTTP/1.1" 200 -
+2025-03-23 17:11:45,311 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:45] "GET /playbooks/idomiauTikGyvenimas.yml HTTP/1.1" 200 -
+2025-03-23 17:11:46,847 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:46] "OPTIONS /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 17:11:46,849 - INFO - 10.255.255.210 - - [23/Mar/2025 17:11:46] "GET /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 17:12:19,768 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:19] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:12:19,770 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:19] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:12:36,070 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:36] "OPTIONS /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:12:36,071 - INFO - Playbook playbooktest.yml updated successfully
+2025-03-23 17:12:36,071 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:36] "PUT /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:12:36,825 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:36] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 17:12:36,833 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:36] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 17:12:38,052 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:38] "GET /playbooks/playbooktest.yml HTTP/1.1" 200 -
+2025-03-23 17:12:41,623 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:41] "OPTIONS /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 17:12:41,624 - INFO - Raw data received in POST: {'device_ip': '10.255.255.211'}
+2025-03-23 17:12:41,625 - INFO - Executing command: /home/vlc/bakalauro_Kodas/backend/venv/bin/ansible-playbook /home/vlc/bakalauro_Kodas/backend/ansible_playbooks/playbooktest.yml -i 10.255.255.211, -u cisco --extra-vars ansible_password=cisco ansible_network_os=cisco.ios.ios ansible_command_timeout=120 ansible_become_password=cisco ansible_connection=network_cli target=10.255.255.211 --ssh-common-args -o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+2025-03-23 17:12:44,251 - INFO - Playbook playbooktest.yml executed. Output:
+
+PLAY [Test SNMP Location] ******************************************************
+
+TASK [Set SNMP location] *******************************************************
+ok: [10.255.255.211]
+
+TASK [Save running-config] *****************************************************
+ok: [10.255.255.211]
+
+PLAY RECAP *********************************************************************
+10.255.255.211             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+2025-03-23 17:12:44,251 - INFO - 10.255.255.210 - - [23/Mar/2025 17:12:44] "POST /playbooks/playbooktest.yml/execute HTTP/1.1" 200 -
+2025-03-23 18:23:28,417 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:23:28,419 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 18:23:28,420 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 18:23:28,419 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:23:28,419 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 18:23:28,420 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 18:23:28,421 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 18:23:28,422 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "GET /recent-activity HTTP/1.1" 200 -
+2025-03-23 18:23:28,425 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 18:23:28,425 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:28] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 18:23:31,387 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 18:23:31,389 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 18:23:31,390 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "GET /users HTTP/1.1" 200 -
+2025-03-23 18:23:31,391 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "GET /users HTTP/1.1" 200 -
+2025-03-23 18:23:31,820 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 18:23:31,820 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 18:23:31,820 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 18:23:31,821 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 18:23:31,823 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 18:23:31,823 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 18:23:31,824 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-23 18:23:31,827 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:31] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-23 18:23:33,466 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:33] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-23 18:23:33,467 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:33] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:23:33,468 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:33] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:23:33,469 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:33] "[31m[1mGET /playbooks HTTP/1.1[0m" 401 -
+2025-03-23 18:23:33,470 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 18:23:33,470 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:33] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 18:23:33,471 - ERROR - Error: Token has expired: Signature has expired
+2025-03-23 18:23:33,472 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:33] "[31m[1mGET /devices HTTP/1.1[0m" 401 -
+2025-03-23 18:23:45,291 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-23 18:23:45,464 - INFO - User adminas logged in successfully
+2025-03-23 18:23:45,465 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "POST /login HTTP/1.1" 200 -
+2025-03-23 18:23:45,481 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 18:23:45,482 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "OPTIONS /playbooks HTTP/1.1" 200 -
+2025-03-23 18:23:45,482 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:23:45,482 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:23:45,486 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 18:23:45,488 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "GET /devices HTTP/1.1" 200 -
+2025-03-23 18:23:45,488 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "GET /playbooks HTTP/1.1" 200 -
+2025-03-23 18:23:45,490 - INFO - 10.255.255.210 - - [23/Mar/2025 18:23:45] "GET /devices HTTP/1.1" 200 -
+2025-03-23 18:30:57,907 - INFO - 10.255.255.210 - - [23/Mar/2025 18:30:57] "OPTIONS /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 18:30:57,908 - INFO - 10.255.255.210 - - [23/Mar/2025 18:30:57] "GET /playbooks/ciscotest.yml HTTP/1.1" 200 -
+2025-03-23 18:31:01,575 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:01] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 18:31:01,575 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:01] "OPTIONS /users HTTP/1.1" 200 -
+2025-03-23 18:31:01,578 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:01] "GET /users HTTP/1.1" 200 -
+2025-03-23 18:31:01,579 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:01] "GET /users HTTP/1.1" 200 -
+2025-03-23 18:31:03,753 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:03] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:31:03,754 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:03] "[33mGET /configurations HTTP/1.1[0m" 404 -
+2025-03-23 18:31:03,755 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:03] "OPTIONS /devices HTTP/1.1" 200 -
+2025-03-23 18:31:03,756 - INFO - 10.255.255.210 - - [23/Mar/2025 18:31:03] "[33mGET /configurations HTTP/1.1[0m" 404 -
