@@ -3,6 +3,7 @@ from flask_cors import CORS
 import yaml
 import os
 import mysql.connector
+from mysql.connector import pooling
 from flask_bcrypt import Bcrypt
 import jwt
 from datetime import datetime, timedelta, timezone
@@ -10,9 +11,11 @@ import subprocess
 import re
 import logging
 
-logging.basicConfig(filename="netcentral.log",level=logging.INFO,format="%(asctime)s - %(levelname)s - %(message)s") #Logging setup
+
+logging.basicConfig(filename="netcentral.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 config_path = '/home/vlc/bakalauro_Kodas/backend/config.yml'
+
 def loadConfig():
     with open(config_path, 'r') as config_file:
         return yaml.safe_load(config_file)
@@ -25,33 +28,17 @@ bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = config['general']['secret_key']
 token_expiration_hours = config['general']['token_expiration_hours']
 
-# Connection to database
-db = mysql.connector.connect(
-    host=config['database']['host'],
-    user=config['database']['user'],
-    password=config['database']['password'],
-    database=config['database']['database'],
-    autocommit=True
-)
+# Connection Pool
+dbconfig = {
+    'host': config['database']['host'],
+    'user': config['database']['user'],
+    'password': config['database']['password'],
+    'database': config['database']['database']
+}
+connection_pool = pooling.MySQLConnectionPool(pool_name="mypool", pool_size=10, **dbconfig)
 
-
-def reconnect_db():
-    global db
-    try:
-        db.close()
-    except:
-        pass
-    try:
-        db = mysql.connector.connect(
-            host=config['database']['host'],
-            user=config['database']['user'],
-            password=config['database']['password'],
-            database=config['database']['database'],
-            autocommit=True
-        )
-        logging.info("✅ Database connection reestablished")
-    except mysql.connector.Error as e:
-        logging.error(f"❌ Failed to reconnect to database: {e}")
+def get_connection():
+    return connection_pool.get_connection()
 
 ##====================================================================
 #                       LOGIN
@@ -63,11 +50,13 @@ def login():
     username = data.get('username')
     password = data.get('password')
 
-    cursor = db.cursor(dictionary=True)
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
     user = cursor.fetchone()
     cursor.close()
-    
+    conn.close()
+
     if user and bcrypt.check_password_hash(user['password_hash'], password):
         token = jwt.encode(
             {
@@ -82,7 +71,7 @@ def login():
         logging.info(f"User {username} logged in successfully")
         return jsonify({'token': token}), 200
 
-    logging.warning(f"Failed login attempt for user {username}")    
+    logging.warning(f"Failed login attempt for user {username}")
     return jsonify({"error": "Invalid Credentials"}), 401
 
 ##====================================================================
@@ -91,10 +80,12 @@ def login():
 
 @app.route('/users', methods=['GET'])
 def get_users():
-    cursor = db.cursor(dictionary=True)
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT id, username, role FROM users")
     users = cursor.fetchall()
     cursor.close()
+    conn.close()
     return jsonify(users), 200
 
 @app.route('/users', methods=['POST'])
@@ -105,13 +96,15 @@ def add_user():
     role = data.get('role', 'user')
     password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
 
-    cursor = db.cursor()
+    conn = get_connection()
+    cursor = conn.cursor()
     cursor.execute(
         "INSERT INTO users (username, password_hash, role) VALUES (%s, %s, %s)",
         (username, password_hash, role)
     )
-    db.commit()
+    conn.commit()
     cursor.close()
+    conn.close()
     logging.info(f"User {username} added with role {role}")
     return jsonify({"message": "User Added"}), 201
 
@@ -122,7 +115,8 @@ def update_user(id):
     password = data.get('password')
     role = data.get('role')
 
-    cursor = db.cursor()
+    conn = get_connection()
+    cursor = conn.cursor()
     if password:
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
         cursor.execute(
@@ -134,19 +128,26 @@ def update_user(id):
             "UPDATE users SET username = %s, role = %s WHERE id = %s",
             (username, role, id)
         )
-    db.commit()
+    conn.commit()
     cursor.close()
+    conn.close()
     logging.warning(f"Users {username} account details is changed")
     return jsonify({"message": "User updated"}), 200
 
 @app.route('/users/<int:id>', methods=['DELETE'])
 def delete_user(id):
-    cursor = db.cursor()
+    conn = get_connection()
+    cursor = conn.cursor()
     cursor.execute("DELETE FROM users WHERE id = %s", (id,))
-    db.commit()
+    conn.commit()
+
     if cursor.rowcount == 0:
+        cursor.close()
+        conn.close()
         return jsonify({"error": "User not found"}), 404
+
     cursor.close()
+    conn.close()
     logging.warning(f"User {username} is deleted")
     return jsonify({"message": "User deleted"}), 200
 
@@ -170,23 +171,23 @@ def get_devices():
         logging.error(f"Error: Invalid Token Error: {e}")
         return jsonify({"Error": "Invalid token"}), 401
 
-    # Connection with DB check
-    if not db.is_connected():
-        try:
-            reconnect_db()
-        except mysql.connector.Error as e:
-            logging.error(f"Error: Database connection error: {e}")
-            return jsonify({"Error": f"Database connection error: {e}"}), 500
-
     try:
-        cursor = db.cursor(dictionary=True)
+        try:
+            conn = get_connection()
+        except mysql.connector.Error as conn_err:
+            logging.error(f"Error: Failed to get connection from pool: {conn_err}")
+            return jsonify({"error": "Database connection failed"}), 500
+
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM network_equipment")
         devices = cursor.fetchall()
         cursor.close()
+        conn.close()
         return jsonify(devices), 200
     except mysql.connector.Error as e:
         logging.error(f"Error: Database query error: {e}")
         return jsonify({"Error": f"Database query error: {e}"}), 500
+
 
 
 
@@ -265,58 +266,83 @@ def add_device():
         username = decoded_token.get('username')
         print(f"Decoded username: {username}")
     except jwt.ExpiredSignatureError:
-        logging.error("Error:" "Token has expired")
+        logging.error("Error: Token has expired")
         return jsonify({"error": "Token has expired"}), 401
     except jwt.InvalidTokenError:
-        logging.error("Error:" "Invalid token")
+        logging.error("Error: Invalid token")
         return jsonify({"Error": "Invalid token"}), 401
 
     # Getting data via SNMP
     device_info = get_device_info(ip_address, community)
     if not device_info:
-        cursor=db.cursor()
-        action_description=f"Error: User {username} - Failed to connect to device at {ip_address}. No response received."
+        try:
+            conn = get_connection()
+        except mysql.connector.Error as conn_err:
+            logging.error(f"Failed to get DB connection to log SNMP failure: {conn_err}")
+            return jsonify({"error": "Database connection error"}), 500
+        
+        cursor = conn.cursor()
+        action_description = f"Error: User {username} - Failed to connect to device at {ip_address}. No response received."
         logging.warning(action_description)
         print(action_description)
-        timestamp=datetime.now()
+        timestamp = datetime.now()
         cursor.execute("INSERT INTO recent_activity (message, timestamp) VALUES (%s, %s)", (action_description, timestamp))
-        db.commit()
+        conn.commit()
         cursor.close()
-        logging.error("Error:" f"Failed to connect to device at {ip_address}. No response received.")
+        conn.close()
         return jsonify({"error": f"Failed to connect to device at {ip_address}. No response received."}), 500
-        
-        
 
-    # Saving collected data in DB
-    cursor = db.cursor()
-    cursor.execute(
-        "INSERT INTO network_equipment (ip_address, name, model, manufacturer, status, location) VALUES (%s, %s, %s, %s, %s, %s)",
-        (device_info['ip_address'], device_info['hostname'], device_info['model'], device_info['manufacturer'], device_info['status'], device_info['location'])
-    )
-    db.commit()
+    try:
+        conn = get_connection()
+    except mysql.connector.Error as conn_err:
+        logging.error(f"Error: Failed to get DB connection for adding device: {conn_err}")
+        return jsonify({"error": "Database connection error"}), 500
 
-    # Adding logs
-    action_description = f"User {username} added a new device {device_info['hostname']} | IP: {device_info['ip_address']}"
-    logging.info(action_description)
-    print(action_description)
-    timestamp = datetime.now()
-    cursor.execute("INSERT INTO recent_activity (message, timestamp) VALUES (%s, %s)", (action_description, timestamp))
-    db.commit()
-    cursor.close()
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            "INSERT INTO network_equipment (ip_address, name, model, manufacturer, status, location) VALUES (%s, %s, %s, %s, %s, %s)",
+            (device_info['ip_address'], device_info['hostname'], device_info['model'], device_info['manufacturer'], device_info['status'], device_info['location'])
+        )
+        conn.commit()
 
-    return jsonify(device_info), 201
+        # Adding logs
+        action_description = f"User {username} added a new device {device_info['hostname']} | IP: {device_info['ip_address']}"
+        logging.info(action_description)
+        print(action_description)
+        timestamp = datetime.now()
+        cursor.execute("INSERT INTO recent_activity (message, timestamp) VALUES (%s, %s)", (action_description, timestamp))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        return jsonify(device_info), 201
+
+    except mysql.connector.Error as db_err:
+        logging.error(f"Error during DB insert for device {ip_address}: {db_err}")
+        return jsonify({"error": "Failed to add device to database"}), 500
+
 
 
 @app.route('/devices/<int:device_id>', methods=['GET'])
 def get_device_details(device_id):
-    cursor = db.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM network_equipment WHERE id = %s", (device_id,))
-    device_info = cursor.fetchone()
-    cursor.close()
-    if device_info:
-        return jsonify(device_info), 200
-    else:
-        return jsonify({"error": "Device not found"}), 404
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM network_equipment WHERE id = %s", (device_id,))
+        device_info = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+        if device_info:
+            return jsonify(device_info), 200
+        else:
+            return jsonify({"error": "Device not found"}), 404
+
+    except mysql.connector.Error as e:
+        logging.error(f"Error retrieving device {device_id}: {e}")
+        return jsonify({"error": "Database error occurred"}), 500
+
 
 ##====================================================================
 #                       Recent Activity
@@ -325,21 +351,27 @@ def get_device_details(device_id):
 @app.route('/recent-activity', methods=['GET'])
 def get_recent_activity():
     try:
-        # Checking connection with DB
-        if not db.is_connected():
-            db.reconnect()
-        
-        cursor = db.cursor(dictionary=True)
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT message, timestamp FROM recent_activity ORDER BY timestamp DESC LIMIT 5")
         recent_activity = cursor.fetchall()
         cursor.close()
+        conn.close()
         return jsonify(recent_activity), 200
+
     except mysql.connector.Error as e:
-        logging.error("Error:" f" Database error: {e}")
+        import traceback
+        logging.error("Traceback: " + traceback.format_exc())
+        logging.error(f"Database error: {e}")
         return jsonify({"error": f"Database error: {e}"}), 500
+
     except Exception as e:
-        logging.error("Error:" f"Unexpected error: {e}")
+        import traceback
+        logging.error("Traceback: " + traceback.format_exc())
+        logging.error(f"Unexpected error: {e}")
         return jsonify({"error": f"Unexpected error: {e}"}), 500
+
+
 
 
 
@@ -489,7 +521,8 @@ def execute_playbook(filename):
     env = {
         **os.environ,
         "ANSIBLE_CONFIG": "/home/vlc/bakalauro_Kodas/backend/ansible.cfg",
-        "ANSIBLE_SSH_TYPE": "paramiko"
+        "ANSIBLE_SSH_TYPE": "paramiko",
+        "ANSIBLE_HOST_KEY_CHECKING": "False"
     }
 
     deviceProfiles = {
@@ -504,18 +537,21 @@ def execute_playbook(filename):
     }
 
     try:
-        cursor = db.cursor(dictionary=True)
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT manufacturer FROM network_equipment WHERE ip_address = %s", (device_ip,))
         device = cursor.fetchone()
         cursor.close()
 
         if not device:
+            conn.close()
             return jsonify({"error": "Device not found in database"}), 404
 
         manufacturer = device.get("manufacturer")
         profile = deviceProfiles.get(manufacturer)
 
         if not profile:
+            conn.close()
             return jsonify({"error": f"Unsupported manufacturer: {manufacturer}"}), 400
 
         network_os = profile["network_os"]
@@ -530,7 +566,8 @@ def execute_playbook(filename):
             "--extra-vars",
             f"ansible_password={ansiblePassword} ansible_network_os={network_os} ansible_command_timeout=120 ansible_become_password=cisco "
             f"ansible_connection={connection} target={device_ip}",
-            "--ssh-common-args", "-o StrictHostKeyChecking=no -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc"
+            "--ssh-common-args",
+            "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa -oCiphers=aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc"
         ]
 
         logging.info(f"Executing command: {' '.join(cmd)}")
@@ -542,6 +579,11 @@ def execute_playbook(filename):
             text=True,
             env=env
         )
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO playbook_usage (playbook_name, executed_at) VALUES (%s, NOW())", (filename,))
+        conn.commit()
+        cursor.close()
+        conn.close()
 
         logging.info(f"Playbook {filename} executed. Output:\n{result.stdout}")
         return jsonify({
@@ -553,6 +595,39 @@ def execute_playbook(filename):
     except Exception as e:
         logging.error(f"Error executing playbook {filename}: {e}")
         return jsonify({"error": "Failed to execute playbook"}), 500
+
+
+@app.route('/playbooks/top-used', methods=['GET'])
+def get_top_used_playbooks():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+            SELECT playbook_name, COUNT(*) as usage_count, MAX(executed_at) as last_used
+            FROM playbook_usage
+            GROUP BY playbook_name
+            ORDER BY last_used DESC
+            LIMIT 5
+        """)
+        top_playbooks = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(top_playbooks), 200
+
+    except mysql.connector.Error as e:
+        import traceback
+        logging.error("Traceback: " + traceback.format_exc())
+        logging.error(f"Database error fetching top used playbooks: {e}")
+        return jsonify({"error": "Database error"}), 500
+
+    except Exception as e:
+        import traceback
+        logging.error("Traceback: " + traceback.format_exc())
+        logging.error(f"Unexpected error: {e}")
+        return jsonify({"error": "Unexpected error occurred"}), 500
+
+
+
 
 
 ##====================================================================

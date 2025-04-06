@@ -6,17 +6,18 @@ function MainPage() {
   const [recentActivity, setRecentActivity] = useState([]);
   const [alerts, setAlerts] = useState([]);
   const [devices, setDevices] = useState([]);
-  const [configurations, setConfigurations] = useState([]);
+  const [topConfigs, setTopConfigs] = useState([]);
+
 
   useEffect(() => {
     fetchRecentActivity();
     fetchDevices();
-    fetchConfigurations();
+    fetchTopUsedConfigs();
   
     const interval = setInterval(() => {
       fetchDevices();
-      fetchConfigurations();
       fetchRecentActivity();
+      fetchTopUsedConfigs();
     }, 10000);
   
     return () => clearInterval(interval);
@@ -59,11 +60,15 @@ function MainPage() {
     }
   };
 
-  const fetchConfigurations = async () => {
-    const res = await fetch('http://10.255.255.218:5000/configurations');
+  const fetchTopUsedConfigs = async () => {
+  try {
+    const res = await fetch('http://10.255.255.218:5000/playbooks/top-used');
     const data = await res.json();
-    setConfigurations(data);
-  };
+    setTopConfigs(data);
+  } catch (error) {
+    console.error("Error fetching top used configurations:", error);
+  }
+};
 
   return (
     <div className="main-page">
@@ -125,13 +130,27 @@ function MainPage() {
 
         {/* Configurations */}
         <div className="grid-item">
-          <h3>Configurations</h3>
-          <ul className="config-list">
-            {configurations.map((config, index) => (
-              <li key={index}>{config.name}</li>
-            ))}
-          </ul>
-        </div>
+  <h3>Top 5 Recently Used Configurations</h3>
+  <ul className="config-list">
+    {topConfigs.length > 0 ? (
+      topConfigs.map((config, index) => (
+        <li key={index}>
+          <strong>{config.playbook_name}</strong><br />
+          <small>
+            Last used:{' '}
+            {config.last_used
+              ? new Date(config.last_used).toLocaleString()
+              : 'Never'}
+          </small><br />
+          <small>Used {config.usage_count} times</small>
+        </li>
+      ))
+    ) : (
+      <li>No usage data available.</li>
+    )}
+  </ul>
+</div>
+
       </div>
     </div>
   );

@@ -10,6 +10,8 @@ function PlaybookManagement() {
   const [isExecuteModalOpen, setIsExecuteModalOpen] = useState(false);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [newPlaybookName, setNewPlaybookName] = useState('');
   const [userRole, setUserRole] = useState('user');
 
   useEffect(() => {
@@ -34,8 +36,6 @@ function PlaybookManagement() {
       console.error('Error fetching playbooks:', error);
     }
   };
-
-  
 
   const fetchDevices = async () => {
     try {
@@ -105,12 +105,40 @@ function PlaybookManagement() {
       if (res.ok) {
         alert("Playbook saved successfully.");
         setIsEditorOpen(false);
-        fetchPlaybooks(); // playbook list upd
+        fetchPlaybooks();
       } else {
         alert("Failed to save playbook.");
       }
     } catch (error) {
       console.error("Error saving playbook:", error);
+    }
+  };
+
+  const createPlaybook = async () => {
+    if (!newPlaybookName.endsWith('.yml')) {
+      alert("Filename must end with .yml");
+      return;
+    }
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch(`http://10.255.255.218:5000/playbooks/${newPlaybookName}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: '' })
+      });
+      if (res.ok) {
+        alert('Playbook created');
+        setIsCreateModalOpen(false);
+        setNewPlaybookName('');
+        fetchPlaybooks();
+      } else {
+        alert('Failed to create playbook');
+      }
+    } catch (error) {
+      console.error("Error creating playbook:", error);
     }
   };
 
@@ -120,8 +148,6 @@ function PlaybookManagement() {
       return;
     }
 
-    console.log(`Executing playbook: ${selectedPlaybook} on device: ${selectedDevice}`);
-    
     try {
       const token = localStorage.getItem('token');
       const res = await fetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}/execute`, {
@@ -198,6 +224,7 @@ function PlaybookManagement() {
             ))}
           </tbody>
         </table>
+        <button onClick={() => setIsCreateModalOpen(true)} className="create-button">Add Configuration</button>
       </div>
 
       {isEditorOpen && (
@@ -248,6 +275,24 @@ function PlaybookManagement() {
             <div className="modal-actions">
               <button onClick={deletePlaybook} className="delete-confirm-button">YES</button>
               <button onClick={() => setIsDeleteModalOpen(false)} className="cancel-button">NO</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isCreateModalOpen && (
+        <div className="modal">
+          <div className="modal-content create-playbook-modal">
+            <h3>Create New Playbook</h3>
+            <input
+              type="text"
+              placeholder="Enter filename (e.g. my_playbook.yml)"
+              value={newPlaybookName}
+              onChange={(e) => setNewPlaybookName(e.target.value)}
+            />
+            <div className="modal-actions">
+              <button onClick={createPlaybook} className="save-button">Create</button>
+              <button onClick={() => setIsCreateModalOpen(false)} className="cancel-button">Cancel</button>
             </div>
           </div>
         </div>
