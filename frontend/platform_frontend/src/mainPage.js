@@ -13,11 +13,13 @@ function MainPage() {
     fetchRecentActivity();
     fetchDevices();
     fetchTopUsedConfigs();
+    fetchAlerts();
   
     const interval = setInterval(() => {
       fetchDevices();
       fetchRecentActivity();
       fetchTopUsedConfigs();
+      fetchAlerts();
     }, 10000);
   
     return () => clearInterval(interval);
@@ -70,6 +72,20 @@ function MainPage() {
   }
 };
 
+const fetchAlerts = async () => {
+  try {
+    const res = await fetch('http://10.255.255.218:5000/alerts');
+    if (res.ok) {
+      const data = await res.json();
+      setAlerts(data);
+    } else {
+      console.error("Failed to fetch alerts:", await res.json());
+    }
+  } catch (error) {
+    console.error("Error fetching alerts:", error);
+  }
+};
+
   return (
     <div className="main-page">
       <div className="grid-container">
@@ -94,14 +110,20 @@ function MainPage() {
         <div className="grid-item">
           <h3>Alerts</h3>
           <ul className="alert-list">
-            {alerts.map((alert, index) => (
-              <li key={index}>
+            {alerts.length > 0 ? (
+             alerts.map((alert, index) => (
+              <li key={index} className={`alert-item severity-${alert.severity}`}>
                 <p>{alert.message}</p>
-                <span>Severity: {alert.level}</span>
+                <span>Severity: {alert.severity}</span><br />
+                <small>{new Date(alert.timestamp).toLocaleString()}</small>
               </li>
-            ))}
-          </ul>
-        </div>
+             ))
+           ) : (
+            <li>No alerts</li>
+          )}
+     </ul>
+</div>
+
 
         {/* Devices */}
         <div className="grid-item">
@@ -130,7 +152,7 @@ function MainPage() {
 
         {/* Configurations */}
         <div className="grid-item">
-  <h3>Top 5 Recently Used Configurations</h3>
+  <h3>Recently Used Configurations</h3>
   <ul className="config-list">
     {topConfigs.length > 0 ? (
       topConfigs.map((config, index) => (

@@ -10,6 +10,10 @@ from datetime import datetime, timedelta, timezone
 import subprocess
 import re
 import logging
+import threading
+import time
+import platform
+import socket
 
 
 logging.basicConfig(filename="netcentral.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -40,9 +44,73 @@ connection_pool = pooling.MySQLConnectionPool(pool_name="mypool", pool_size=10, 
 def get_connection():
     return connection_pool.get_connection()
 
+
+
+# =============CHECK DEVICE REACHABILITY - PING ======================
+def is_host_reachable(ip):
+    try:
+        if platform.system().lower() == "windows":
+            response = subprocess.run(["ping", "-n", "1", ip], stdout=subprocess.PIPE)
+        else:
+            response = subprocess.run(["ping", "-c", "1", ip], stdout=subprocess.PIPE)
+        return response.returncode == 0
+    except Exception as e:
+        logging.error(f"Ping failed for {ip}: {e}")
+        return False
+
+
+def check_devices_reachability():
+    while True:
+        try:
+            conn = get_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT id, ip_address, name, status FROM network_equipment")
+            devices = cursor.fetchall()
+            cursor.close()
+            conn.close()
+
+            for device in devices:
+                reachable = is_host_reachable(device['ip_address'])
+
+                if not reachable and device['status'] != 'down':
+                    message = f"Device DOWN: {device['name']} ({device['ip_address']})"
+                    logging.warning(message)
+                    try:
+                        conn = get_connection()
+                        cursor = conn.cursor()
+                        cursor.execute("UPDATE network_equipment SET status='down' WHERE id=%s", (device['id'],))
+                        cursor.execute("INSERT INTO alerts (message, severity, timestamp, device_id) VALUES (%s, %s, %s, %s)", (message, 4, datetime.now(), device['id']))
+                        conn.commit()
+                        cursor.close()
+                        conn.close()
+                    except Exception as e:
+                        logging.error(f"Failed to update status or insert alert: {e}")
+
+                elif reachable and device['status'] != 'active':
+                    try:
+                        conn = get_connection()
+                        cursor = conn.cursor()
+                        cursor.execute("UPDATE network_equipment SET status='active' WHERE id=%s", (device['id'],))
+                        cursor.execute("DELETE FROM alerts WHERE device_id=%s", (device['id'],))
+                        conn.commit()
+                        cursor.close()
+                        conn.close()
+                    except Exception as e:
+                        logging.error(f"Failed to update status back to active: {e}")
+
+        except Exception as e:
+            logging.error(f"Error during device check: {e}")
+
+        time.sleep(5)  # Wait 5 minutes
+
+ping_thread = threading.Thread(target=check_devices_reachability, daemon=True)
+ping_thread.start()
+# =============CHECK DEVICE REACHABILITY - PING ======================
+
+
 ##====================================================================
 #                       LOGIN
-#====================================================================
+#=====================================================================
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -381,7 +449,19 @@ def get_recent_activity():
 
 @app.route('/alerts',methods=['GET'])
 def get_alerts():
-    return None
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT id, message, severity, timestamp FROM alerts ORDER BY timestamp DESC LIMIT 10")
+        alerts = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return jsonify(alerts), 200
+    except Exception as e:
+        import traceback
+        logging.error("Traceback: " + traceback.format_exc())
+        logging.error(f"Failed to fetch alerts: {e}")
+        return jsonify({"error": "Failed to fetch alerts"}), 500
 
 
 ##====================================================================
