@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './networkEquipment.css';
+import { authFetch } from './utils/authFetch';
 
 function NetworkEquipment() {
   const [devices, setDevices] = useState([]);
@@ -20,7 +21,7 @@ function NetworkEquipment() {
   const fetchDevices = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://10.255.255.218:5000/devices', {
+      const res = await authFetch('http://10.255.255.218:5000/devices', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -45,7 +46,7 @@ function NetworkEquipment() {
     setErrorMessage(''); // Drop error message
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://10.255.255.218:5000/devices/add', {
+      const res = await authFetch('http://10.255.255.218:5000/devices/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

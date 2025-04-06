@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './configuration.css';
+import { authFetch } from './utils/authFetch';
 
 function PlaybookManagement() {
   const [playbooks, setPlaybooks] = useState([]);
@@ -23,7 +24,7 @@ function PlaybookManagement() {
   const fetchPlaybooks = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://10.255.255.218:5000/playbooks', {
+      const res = await authFetch('http://10.255.255.218:5000/playbooks', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -40,7 +41,7 @@ function PlaybookManagement() {
   const fetchDevices = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://10.255.255.218:5000/devices', {
+      const res = await authFetch('http://10.255.255.218:5000/devices', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -68,7 +69,7 @@ function PlaybookManagement() {
   const openPlaybook = async (filename) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://10.255.255.218:5000/playbooks/${filename}`, {
+      const res = await authFetch(`http://10.255.255.218:5000/playbooks/${filename}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -93,7 +94,7 @@ function PlaybookManagement() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}`, {
+      const res = await authFetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}`, {
         method: "PUT",
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -121,7 +122,7 @@ function PlaybookManagement() {
     }
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://10.255.255.218:5000/playbooks/${newPlaybookName}`, {
+      const res = await authFetch(`http://10.255.255.218:5000/playbooks/${newPlaybookName}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -150,7 +151,7 @@ function PlaybookManagement() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}/execute`, {
+      const res = await authFetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}/execute`, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -181,7 +182,7 @@ function PlaybookManagement() {
   const deletePlaybook = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}`, {
+      const res = await authFetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

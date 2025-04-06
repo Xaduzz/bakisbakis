@@ -1,6 +1,7 @@
 // src/MainPage.js
 // src/MainPage.js
 import React, { useEffect, useState } from 'react';
+import { authFetch } from './utils/authFetch';
 
 function MainPage() {
   const [recentActivity, setRecentActivity] = useState([]);
@@ -29,7 +30,7 @@ function MainPage() {
 
   const fetchRecentActivity = async () => {
     try{
-      const res = await fetch('http://10.255.255.218:5000/recent-activity');
+      const res = await authFetch('http://10.255.255.218:5000/recent-activity');
       const data = await res.json();
       setRecentActivity(data);
   } catch (error){
@@ -42,7 +43,7 @@ function MainPage() {
   const fetchDevices = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://10.255.255.218:5000/devices', {
+      const res = await authFetch('http://10.255.255.218:5000/devices', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,  // Adding auth token
@@ -64,7 +65,7 @@ function MainPage() {
 
   const fetchTopUsedConfigs = async () => {
   try {
-    const res = await fetch('http://10.255.255.218:5000/playbooks/top-used');
+    const res = await authFetch('http://10.255.255.218:5000/playbooks/top-used');
     const data = await res.json();
     setTopConfigs(data);
   } catch (error) {
@@ -74,7 +75,7 @@ function MainPage() {
 
 const fetchAlerts = async () => {
   try {
-    const res = await fetch('http://10.255.255.218:5000/alerts');
+    const res = await authFetch('http://10.255.255.218:5000/alerts');
     if (res.ok) {
       const data = await res.json();
       setAlerts(data);

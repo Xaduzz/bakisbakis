@@ -1,5 +1,6 @@
 // src/UserManagement.js
 import React, { useState, useEffect } from 'react';
+import { authFetch } from './utils/authFetch';
 
 function UserManagement() {
   const [users, setUsers] = useState([]);
@@ -13,7 +14,7 @@ function UserManagement() {
   const fetchUsers = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://10.255.255.218:5000/users', {
+      const res = await authFetch('http://10.255.255.218:5000/users', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -64,7 +65,7 @@ function UserManagement() {
   const deleteUser = async (userId) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://10.255.255.218:5000/users/${userId}`, {
+      const res = await authFetch(`http://10.255.255.218:5000/users/${userId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
