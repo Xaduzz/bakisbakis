@@ -229,8 +229,27 @@
   background-color: #006837;
 }
 
+.user-table th, 
+.user-table td{
+  text-align: center;
+}
 
+.user-table tbody tr:nth-child(odd) {
+  background-color: #222222;
+}
 
+.user-table tbody tr:nth-child(even) {
+  background-color: #474747;
+}
+
+.user-table tbody tr:hover {
+  background-color: #006837;
+}
+
+.user-management {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* action buttons */
 .user-table .action-button,
@@ -242,6 +261,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .user-table .delete-button,
@@ -254,8 +274,15 @@
   background-color: #b33333;
 }
 
+.user-table .edit-button{
+  background-color: #4CAF50;
+  color: white;
+  margin-right: 10px;
+}
 
-
+.user-table .edit-button:hover {
+  background-color: #45a049;
+}
 
 
 

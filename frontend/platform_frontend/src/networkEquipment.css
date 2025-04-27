@@ -1,4 +1,4 @@
-/* Стиль для формы добавления устройства */
+
 .add-device-form {
     display: flex;
     flex-direction: column;
@@ -34,7 +34,6 @@
     background-color: #45a049;
   }
   
-  /* Стиль для списка устройств */
   .device-list {
     list-style: none;
     padding: 0;
@@ -48,7 +47,6 @@
     color: #d4f7dc;
   }
   
-  /* Стиль для настроек SNMP */
   .snmp-settings {
     margin-top: 20px;
     padding: 20px;
@@ -84,6 +82,22 @@
     padding: 10px;
     border-radius: 5px;
     resize: vertical;
-    white-space: pre; /* Сохраняем отступы */
+    white-space: pre;
+  }
+
+  .update-all-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-all-button:hover {
+    background-color: #45a049;
   }
   

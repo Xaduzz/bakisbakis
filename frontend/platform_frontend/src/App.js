@@ -2,14 +2,15 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Login from './login';
 import MainPage from './mainPage';
-
 
 const UserManagement = lazy(() => import('./userManagement'));
 const NetworkEquipment = lazy(() => import('./networkEquipment'));
 const ConfigurationManagement = lazy(() => import('./configurationManagement'));
-
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -32,6 +33,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username'); // Лучше очищать сразу и username
     setIsAuthenticated(false);
     setUserRole(null);
   };
@@ -61,7 +63,7 @@ function App() {
               <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                   <Route path="/Home" element={<MainPage />} />
-                  <Route path="/" element={<MainPage/>} />
+                  <Route path="/" element={<MainPage />} />
                   {userRole === 'admin' && <Route path="/userManagement" element={<UserManagement />} />}
                   <Route path="/Devices" element={<NetworkEquipment />} />
                   <Route path="/configurations" element={<ConfigurationManagement />} />
@@ -69,6 +71,19 @@ function App() {
                 </Routes>
               </Suspense>
             </main>
+
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            /> {}
           </>
         ) : (
           <Login onLoginSuccess={handleLoginSuccess} />

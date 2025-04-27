@@ -16,6 +16,7 @@ import platform
 import socket
 
 
+
 logging.basicConfig(filename="netcentral.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 config_path = '/home/vlc/bakalauro_Kodas/backend/config.yml'
@@ -31,6 +32,7 @@ CORS(app)
 bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = config['general']['secret_key']
 token_expiration_hours = config['general']['token_expiration_hours']
+
 
 # Connection Pool
 dbconfig = {
@@ -185,6 +187,7 @@ def update_user(id):
 
     conn = get_connection()
     cursor = conn.cursor()
+
     if password:
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
         cursor.execute(
@@ -196,28 +199,41 @@ def update_user(id):
             "UPDATE users SET username = %s, role = %s WHERE id = %s",
             (username, role, id)
         )
+
     conn.commit()
     cursor.close()
     conn.close()
-    logging.warning(f"Users {username} account details is changed")
+
+    logging.warning(f"User {username}'s account details updated")
+
     return jsonify({"message": "User updated"}), 200
+
 
 @app.route('/users/<int:id>', methods=['DELETE'])
 def delete_user(id):
     conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("DELETE FROM users WHERE id = %s", (id,))
-    conn.commit()
+    cursor = conn.cursor(dictionary=True)
 
-    if cursor.rowcount == 0:
+    
+    cursor.execute("SELECT username FROM users WHERE id = %s", (id,))
+    user = cursor.fetchone()
+
+    if not user:
         cursor.close()
         conn.close()
         return jsonify({"error": "User not found"}), 404
 
+    username = user['username']
+
+    
+    cursor.execute("DELETE FROM users WHERE id = %s", (id,))
+    conn.commit()
     cursor.close()
     conn.close()
+
     logging.warning(f"User {username} is deleted")
     return jsonify({"message": "User deleted"}), 200
+
 
 ##====================================================================
 #                       DEVICES
@@ -278,6 +294,34 @@ def get_snmp_data(ip_address, oid, community='public'):
         print(f"Exception occurred: {e}")
         return None
 
+def get_snmp_data_v3(ip_address, oid, username, auth_protocol, auth_password, priv_protocol, priv_password):
+    try:
+        result = subprocess.run(
+            [
+                'snmpget', '-v3',
+                '-l', 'authPriv',  # auth + encryption
+                '-u', username,
+                '-a', auth_protocol.lower(),  # md5 or sha 
+                '-A', auth_password,
+                '-x', priv_protocol.lower(),  # des or aes
+                '-X', priv_password,
+                ip_address, oid
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        if result.returncode == 0:
+            output = result.stdout.strip().split("= ", 1)[1]
+            return output.replace("STRING: ", "").replace('"', '').strip()
+        else:
+            print("Error:", result.stderr)
+            return None
+    except Exception as e:
+        print(f"Exception occurred during SNMPv3 get: {e}")
+        return None
+
+
 def get_device_info(ip_address, community='public'):
     device_info = {
         'ip_address': ip_address,
@@ -317,13 +361,63 @@ def get_device_info(ip_address, community='public'):
 
     return device_info
 
+def get_device_info_v3(ip_address, username, auth_protocol, auth_password, priv_protocol, priv_password):
+    device_info = {
+        'ip_address': ip_address,
+        'hostname': 'Unknown',
+        'model': 'Unknown',
+        'location': 'Unknown',
+        'manufacturer': 'Unknown',
+        'status': 'active'
+    }
+
+    model_oid = "1.3.6.1.2.1.1.1.0"
+    hostname_oid = "1.3.6.1.2.1.1.5.0"
+    location_oid = "1.3.6.1.2.1.1.6.0"
+
+    # Getting system description - model, manufacturer and etc.
+    full_description = get_snmp_data_v3(ip_address, model_oid, username, auth_protocol, auth_password, priv_protocol, priv_password)
+    if not full_description:
+        return None  
+
+    if "Cisco IOS Software" in full_description:
+        match = re.search(r"(Cisco IOS Software.*?)(\d{4})", full_description, re.IGNORECASE)
+        if match:
+            device_info['model'] = f"Cisco {match.group(2)}"
+            device_info['manufacturer'] = "Cisco"
+    elif "RouterOS" in full_description:
+        device_info['manufacturer'] = "MikroTik"
+        if "RBD52G-5HacD2HnD" in full_description:
+            device_info['model'] = "hAP ac²"
+        else:
+            device_info['model'] = full_description.split()[1]
+
+    # Getting hostname
+    device_info['hostname'] = get_snmp_data_v3(ip_address, hostname_oid, username, auth_protocol, auth_password, priv_protocol, priv_password) or device_info['hostname']
+
+    # Getting SNMP location
+    device_info['location'] = get_snmp_data_v3(ip_address, location_oid, username, auth_protocol, auth_password, priv_protocol, priv_password) or device_info['location']
+
+    return device_info
+
+
 
 @app.route('/devices/add', methods=['POST'])
 def add_device():
     data = request.json
     ip_address = data.get('ip_address')
+    version = data.get('version', '2c')
+
+    # NMPv2c
     community = data.get('community', 'public')
-    
+
+    # SNMPv3
+    username_snmp = data.get('username')
+    auth_protocol = data.get('authProtocol')
+    auth_password = data.get('authPassword')
+    priv_protocol = data.get('privProtocol')
+    priv_password = data.get('privPassword')
+
     if not ip_address:
         logging.error("Attempt to add device without IP address")
         return jsonify({"error": "IP address is required"}), 400
@@ -340,15 +434,21 @@ def add_device():
         logging.error("Error: Invalid token")
         return jsonify({"Error": "Invalid token"}), 401
 
-    # Getting data via SNMP
-    device_info = get_device_info(ip_address, community)
+    # getting data via different snmpS
+    if version == '2c':
+        device_info = get_device_info(ip_address, community)
+    elif version == '3':
+        device_info = get_device_info_v3(ip_address, username_snmp, auth_protocol, auth_password, priv_protocol, priv_password)
+    else:
+        return jsonify({"error": "Unsupported SNMP version"}), 400
+
     if not device_info:
         try:
             conn = get_connection()
         except mysql.connector.Error as conn_err:
             logging.error(f"Failed to get DB connection to log SNMP failure: {conn_err}")
             return jsonify({"error": "Database connection error"}), 500
-        
+
         cursor = conn.cursor()
         action_description = f"Error: User {username} - Failed to connect to device at {ip_address}. No response received."
         logging.warning(action_description)
@@ -374,13 +474,14 @@ def add_device():
         )
         conn.commit()
 
-        # Adding logs
+        # adding recent activity
         action_description = f"User {username} added a new device {device_info['hostname']} | IP: {device_info['ip_address']}"
         logging.info(action_description)
         print(action_description)
         timestamp = datetime.now()
         cursor.execute("INSERT INTO recent_activity (message, timestamp) VALUES (%s, %s)", (action_description, timestamp))
         conn.commit()
+
         cursor.close()
         conn.close()
 
@@ -389,6 +490,7 @@ def add_device():
     except mysql.connector.Error as db_err:
         logging.error(f"Error during DB insert for device {ip_address}: {db_err}")
         return jsonify({"error": "Failed to add device to database"}), 500
+
 
 
 
@@ -410,6 +512,100 @@ def get_device_details(device_id):
     except mysql.connector.Error as e:
         logging.error(f"Error retrieving device {device_id}: {e}")
         return jsonify({"error": "Database error occurred"}), 500
+
+@app.route('/devices/<int:device_id>', methods=['DELETE'])
+def delete_device(device_id):
+    username = request.headers.get('Username', 'Unknown')
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    try:
+        cursor.execute("SELECT name, ip_address FROM network_equipment WHERE id = %s", (device_id,))
+        device_info = cursor.fetchone()
+
+        if not device_info:
+            return jsonify({"error": "Device not found"}), 404
+
+        cursor.execute("DELETE FROM alerts WHERE device_id = %s", (device_id,)) # Deleting alerts which is connected with the device
+
+        cursor.execute("DELETE FROM network_equipment WHERE id = %s", (device_id,)) # deleteing device
+
+        action_description = f"User {username} deleted a device {device_info['name'] or 'Unknown'} | IP: {device_info['ip_address']}"
+        timestamp = datetime.now()
+        cursor.execute(
+            "INSERT INTO recent_activity (message, timestamp) VALUES (%s, %s)",
+            (action_description, timestamp)
+        )
+
+        conn.commit()
+        logging.info(action_description)
+        print(action_description)
+
+        response = {"message": "Device and related alerts deleted successfully"}
+        status_code = 200
+
+    except Exception as e:
+        print(f"Error deleting device and alerts: {e}")
+        response = {"error": "Failed to delete device and alerts"}
+        status_code = 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+    return jsonify(response), status_code
+
+
+#Updating device info
+@app.route('/devices/update_all', methods=['POST'])
+def update_all_devices():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        
+        cursor.execute("SELECT * FROM network_equipment")
+        devices = cursor.fetchall()
+
+        for device in devices:
+            ip_address = device['ip_address']
+
+            
+            community = device.get('community', 'public')
+            updated_info = get_device_info(ip_address, community)
+
+            if updated_info: #If device is UP - get info
+                cursor.execute("""
+                    UPDATE network_equipment
+                    SET name = %s,
+                        location = %s,
+                        status = 'active'
+                    WHERE ip_address = %s
+                """, (
+                    updated_info['hostname'],
+                    updated_info['location'],
+                    ip_address
+                ))
+            else:
+                # If device is not responding - change status to donw
+                cursor.execute("""
+                    UPDATE network_equipment
+                    SET status = 'inactive'
+                    WHERE ip_address = %s
+                """, (ip_address,))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        logging.info("All devices were updated successfully.")
+        return jsonify({"message": "All devices updated successfully."}), 200
+
+    except Exception as e:
+        print(f"Error updating devices: {e}")
+        return jsonify({"error": "Failed to update devices."}), 500
+
+
 
 
 ##====================================================================

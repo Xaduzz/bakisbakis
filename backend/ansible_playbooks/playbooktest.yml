@@ -6,7 +6,7 @@
     - name: Set SNMP location
       ios_config:
         lines:
-          - snmp-server location Mano_NAMAI
+          - snmp-server location test
 
     - name: Save running-config
       cisco.ios.ios_command:

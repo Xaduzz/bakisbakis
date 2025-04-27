@@ -1,6 +1,7 @@
 // src/UserManagement.js
 import React, { useState, useEffect } from 'react';
 import { authFetch } from './utils/authFetch';
+import { toast } from 'react-toastify';
 
 function UserManagement() {
   const [users, setUsers] = useState([]);
@@ -10,29 +11,25 @@ function UserManagement() {
   const [editingUserId, setEditingUserId] = useState(null);
   const [message, setMessage] = useState('');
 
-  // Load all users
   const fetchUsers = async () => {
     const token = localStorage.getItem('token');
     try {
       const res = await authFetch('http://10.255.255.218:5000/users', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
       setUsers(data);
     } catch (error) {
       console.error("Connection error: ", error);
-      setMessage("Connection with server error: ");
+      toast.error("Error connecting to server");
     }
   };
 
-  // add new user
   const saveUser = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const url = editingUserId 
-      ? `http://10.255.255.218:5000/users/${editingUserId}` 
+    const url = editingUserId
+      ? `http://10.255.255.218:5000/users/${editingUserId}`
       : 'http://10.255.255.218:5000/users';
     const method = editingUserId ? 'PUT' : 'POST';
 
@@ -42,46 +39,61 @@ function UserManagement() {
     try {
       const res = await fetch(url, {
         method,
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(body),
       });
       const data = await res.json();
-      setMessage(editingUserId ? 'User updated' : 'User added');
-      setUsername('');
-      setPassword('');
-      setRole('user');
-      setEditingUserId(null);
-      fetchUsers();
+      if (res.ok) {
+        toast.success(editingUserId ? 'User updated successfully!' : 'User created successfully!');
+        setUsername('');
+        setPassword('');
+        setRole('user');
+        setEditingUserId(null);
+        fetchUsers();
+      } else {
+        toast.error(data.error || "An error occurred");
+      }
     } catch (error) {
       console.error("Connection Error: ", error);
-      setMessage("Error with connection to server or with data in user management fields");
+      toast.error("Server connection error");
     }
   };
 
-  // User Deleting
   const deleteUser = async (userId) => {
     const token = localStorage.getItem('token');
     try {
       const res = await authFetch(`http://10.255.255.218:5000/users/${userId}`, {
         method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
       if (res.ok) {
-        setMessage("User successfully deleted");
+        toast.success("User deleted successfully");
         fetchUsers();
       } else {
-        setMessage(data.error || "User delete error");
+        toast.error(data.error || "User deletion error");
       }
     } catch (error) {
       console.error("Connection Error:", error);
-      setMessage("Connection with server error");
+      toast.error("Server connection error");
     }
+  };
+
+  const startEditing = (user) => {
+    setEditingUserId(user.id);
+    setUsername(user.username);
+    setRole(user.role);
+    setPassword('');
+  };
+
+  const cancelEditing = () => {
+    setEditingUserId(null);
+    setUsername('');
+    setPassword('');
+    setRole('user');
   };
 
   useEffect(() => {
@@ -96,18 +108,19 @@ function UserManagement() {
       <form onSubmit={saveUser} className="user-form">
         <label>
           Username:
-          <input 
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)} 
-            required 
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </label>
         <label>
           Password:
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder={editingUserId ? 'Leave empty to keep current' : ''}
           />
         </label>
         <label>
@@ -118,8 +131,13 @@ function UserManagement() {
           </select>
         </label>
         <button type="submit">
-          {editingUserId ? 'Update' : 'Add'} User
+          {editingUserId ? 'Update User' : 'Add User'}
         </button>
+        {editingUserId && (
+          <button type="button" onClick={cancelEditing}>
+            Cancel
+          </button>
+        )}
       </form>
 
       <table className="user-table">
@@ -136,8 +154,14 @@ function UserManagement() {
               <td>{user.username}</td>
               <td>{user.role}</td>
               <td>
-                <button 
-                  onClick={() => deleteUser(user.id)} 
+                <button
+                  onClick={() => startEditing(user)}
+                  className="action-button edit-button"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => deleteUser(user.id)}
                   className="action-button delete-button"
                 >
                   Delete

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './configuration.css';
 import { authFetch } from './utils/authFetch';
+import { toast } from 'react-toastify';
 
 function PlaybookManagement() {
   const [playbooks, setPlaybooks] = useState([]);
@@ -32,9 +33,11 @@ function PlaybookManagement() {
         setPlaybooks(data);
       } else {
         console.error("Failed to fetch playbooks");
+        toast.error("Failed to fetch playbooks");
       }
     } catch (error) {
       console.error('Error fetching playbooks:', error);
+      toast.error('Error fetching playbooks:', error);
     }
   };
 
@@ -79,7 +82,7 @@ function PlaybookManagement() {
         setEditorContent(data.content || '');
         setIsEditorOpen(true);
       } else {
-        alert("Failed to load playbook");
+        toast.alert("Failed to load playbook");
       }
     } catch (error) {
       console.error('Error opening playbook:', error);
@@ -145,7 +148,7 @@ function PlaybookManagement() {
 
   const executePlaybook = async () => {
     if (!selectedPlaybook || !selectedDevice) {
-      alert("Please select a playbook and a device.");
+      toast.warning("Please select a playbook and a device.");
       return;
     }
 

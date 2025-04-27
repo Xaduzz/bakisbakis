@@ -19,6 +19,7 @@ function Login({ onLoginSuccess }) {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token);
+        localStorage.setItem('username', username);
         setMessage('Login Success');
         onLoginSuccess();
       } else {
@@ -26,7 +27,7 @@ function Login({ onLoginSuccess }) {
       }
     } catch (error) {
       console.error('Connection with server was lost!', error);
-      setMessage('Connection with server was lost!');
+      setMessage('Incorrect username or password');
     }
   };
 
