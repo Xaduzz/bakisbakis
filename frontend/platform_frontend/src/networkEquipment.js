@@ -153,6 +153,7 @@ function NetworkEquipment() {
   };
   
   
+  
 
   return (
     <div className="equipment-container">

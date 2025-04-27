@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import DeviceProfile from './deviceProfile';
 import Login from './login';
 import MainPage from './mainPage';
 
@@ -66,6 +66,7 @@ function App() {
                   <Route path="/" element={<MainPage />} />
                   {userRole === 'admin' && <Route path="/userManagement" element={<UserManagement />} />}
                   <Route path="/Devices" element={<NetworkEquipment />} />
+                  <Route path="/devices/:deviceId" element={<DeviceProfile />} />
                   <Route path="/configurations" element={<ConfigurationManagement />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>

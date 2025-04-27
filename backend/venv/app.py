@@ -14,6 +14,7 @@ import threading
 import time
 import platform
 import socket
+import paramiko
 
 
 
@@ -45,6 +46,50 @@ connection_pool = pooling.MySQLConnectionPool(pool_name="mypool", pool_size=10, 
 
 def get_connection():
     return connection_pool.get_connection()
+
+def ssh_get_running_config(ip, username, password, enable_password):
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip, username=config['ansible']['username'], password=config['ansible']['password'], timeout=5, look_for_keys=False, allow_agent=False)
+
+        chan = ssh.invoke_shell()
+        chan.settimeout(5)
+
+        time.sleep(1)
+
+        chan.send('enable\n')
+        time.sleep(1)
+
+        if enable_password:
+            chan.send(f'{enable_password}\n')
+            time.sleep(1)
+
+        chan.send('terminal length 0\n')
+        time.sleep(1)
+
+        chan.send('show running-config\n')
+        time.sleep(2)
+
+        output = chan.recv(100000).decode('utf-8')
+
+        ssh.close()
+
+        output_lines = output.splitlines()
+        config_lines = []
+        collecting = False
+        for line in output_lines:
+            if 'show running-config' in line:
+                collecting = True
+                continue
+            if collecting:
+                config_lines.append(line)
+
+        return '\n'.join(config_lines).strip()
+
+    except Exception as e:
+        print(f"SSH connection failed: {e}")
+        return None
 
 
 
@@ -605,7 +650,35 @@ def update_all_devices():
         print(f"Error updating devices: {e}")
         return jsonify({"error": "Failed to update devices."}), 500
 
+@app.route('/devices/<int:device_id>/config', methods=['GET'])
+def get_device_config(device_id):
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
 
+        
+        cursor.execute("SELECT * FROM network_equipment WHERE id = %s", (device_id,))
+        device = cursor.fetchone()
+
+        if not device:
+            return jsonify({"error": "Device not found"}), 404
+
+        ip_address = device['ip_address']
+        ssh_username = config['ansible']['username'] 
+        ssh_password = config['ansible']['password']
+        enable_password=config['ansible']['password']
+
+        # ssh connection
+        config_output = ssh_get_running_config(ip_address, ssh_username, ssh_password, enable_password)
+
+        if config_output:
+            return jsonify({"config": config_output}), 200
+        else:
+            return jsonify({"error": "Failed to retrieve configuration"}), 500
+
+    except Exception as e:
+        print(f"Error getting device config: {e}")
+        return jsonify({"error": "Server error"}), 500
 
 
 ##====================================================================
