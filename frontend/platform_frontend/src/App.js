@@ -7,6 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import DeviceProfile from './deviceProfile';
 import Login from './login';
 import MainPage from './mainPage';
+import UserMenu from './userMenu';
+import ChangePassword from './pswChange';
+
 
 const UserManagement = lazy(() => import('./userManagement'));
 const NetworkEquipment = lazy(() => import('./networkEquipment'));
@@ -33,7 +36,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('username'); // Лучше очищать сразу и username
+    localStorage.removeItem('username');
     setIsAuthenticated(false);
     setUserRole(null);
   };
@@ -56,7 +59,7 @@ function App() {
                 {userRole === 'admin' && <Link to="/userManagement">User Management</Link>}
                 <Link to="/Devices">Network Equipment</Link>
                 <Link to="/configurations">Configurations</Link>
-                <button onClick={handleLogout}>Logout</button>
+                <UserMenu onLogout={handleLogout} />
               </nav>
             </header>
             <main>
@@ -68,6 +71,7 @@ function App() {
                   <Route path="/Devices" element={<NetworkEquipment />} />
                   <Route path="/devices/:deviceId" element={<DeviceProfile />} />
                   <Route path="/configurations" element={<ConfigurationManagement />} />
+                  <Route path="/change-password" element={<ChangePassword />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
               </Suspense>

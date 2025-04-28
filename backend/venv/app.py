@@ -278,6 +278,38 @@ def delete_user(id):
 
     logging.warning(f"User {username} is deleted")
     return jsonify({"message": "User deleted"}), 200
+    
+
+@app.route('/change-password', methods=['POST'])
+def change_password():
+    data = request.json
+    old_password = data.get('old_password')
+    new_password = data.get('new_password')
+
+    token = request.headers.get('Authorization', '').split(' ')[1]
+    try:
+        decoded_token = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
+        username = decoded_token.get('username')
+    except Exception as e:
+        return jsonify({"error": "Invalid token"}), 401
+
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+    user = cursor.fetchone()
+
+    if not user or not bcrypt.check_password_hash(user['password_hash'], old_password):
+        return jsonify({"error": "Incorrect old password"}), 400
+
+    new_password_hash = bcrypt.generate_password_hash(new_password).decode('utf-8')
+    cursor.execute("UPDATE users SET password_hash = %s WHERE username = %s", (new_password_hash, username))
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    return jsonify({"message": "Password changed successfully"}), 200
 
 
 ##====================================================================
@@ -479,6 +511,32 @@ def add_device():
         logging.error("Error: Invalid token")
         return jsonify({"Error": "Invalid token"}), 401
 
+    try:
+        conn = get_connection()
+    except mysql.connector.Error as conn_err:
+        logging.error(f"Error: Failed to get DB connection for checking device: {conn_err}")
+        return jsonify({"error": "Database connection error"}), 500
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        # сhecking or device is exists
+        cursor.execute("SELECT * FROM network_equipment WHERE ip_address = %s", (ip_address,))
+        existing_device = cursor.fetchone()
+
+        if existing_device:
+            logging.warning(f"Attempt to add already existing device {ip_address}")
+            cursor.close()
+            conn.close()
+            return jsonify({"error": "Device already exists"}), 400
+
+        cursor.close()
+        conn.close()
+
+    except mysql.connector.Error as db_err:
+        logging.error(f"Error during DB check for device {ip_address}: {db_err}")
+        return jsonify({"error": "Failed to check device in database"}), 500
+
     # getting data via different snmpS
     if version == '2c':
         device_info = get_device_info(ip_address, community)
@@ -493,6 +551,11 @@ def add_device():
         except mysql.connector.Error as conn_err:
             logging.error(f"Failed to get DB connection to log SNMP failure: {conn_err}")
             return jsonify({"error": "Database connection error"}), 500
+
+        if existing_device:
+            logging.warning(f"Attempt to add already existing device {ip_address}")
+            return jsonify({"error": "Device already exists"}), 400
+
 
         cursor = conn.cursor()
         action_description = f"Error: User {username} - Failed to connect to device at {ip_address}. No response received."

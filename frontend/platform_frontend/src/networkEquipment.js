@@ -19,8 +19,11 @@ function NetworkEquipment() {
   const [message, setMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState(''); // For error display
   const navigate = useNavigate();
+  const [deviceToDelete, setDeviceToDelete] = useState(null);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const currentUsername = localStorage.getItem('username');
+  const [userRole, setUserRole] = useState('user'); 
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -31,8 +34,20 @@ function NetworkEquipment() {
       navigate('/login');
     } else {
       fetchDevices();
+      checkUserRole();
     }
   }, []);
+
+  const checkUserRole = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+    try {
+      const decoded = JSON.parse(atob(token.split('.')[1]));
+      setUserRole(decoded.role);
+    } catch (error) {
+      console.error("Error decoding token", error);
+    }
+  };
 
   const fetchDevices = async () => {
     try {
@@ -56,9 +71,19 @@ function NetworkEquipment() {
     }
   };
 
+  const validateIpAddress = (ip) => {
+    const ipRegex = /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$/;
+    return ipRegex.test(ip);
+  };
+
   const handleAddDevice = async (e) => {
     e.preventDefault();
     setErrorMessage(''); // Drop error message
+
+    if (!validateIpAddress(ipAddress)) {
+      toast.error('Invalid IP address');
+      return;
+    }
 
     if (snmpSettings.version === '2c' && !snmpSettings.community.trim()) {
       toast.error('Community string is required for SNMP v2c');
@@ -96,7 +121,11 @@ function NetworkEquipment() {
         setIpAddress('');
         fetchDevices();
       } else {
-        setErrorMessage(data.error || 'Failed to add device'); // Getting error message
+        if (data.error === 'Device already exists') {
+          toast.error('Device already exists');
+        } else {
+          toast.error(data.error || 'Failed to add device');
+        }
       }
     } catch (error) {
       console.error('Error adding device:', error);
@@ -151,7 +180,39 @@ function NetworkEquipment() {
       toast.error('Server connection error');
     }
   };
+
+  const confirmDeleteDevice = (deviceId) => {
+    setDeviceToDelete(deviceId);
+    setShowConfirmModal(true);
+  };
   
+  const handleDeleteConfirmed = async () => {
+    if (!deviceToDelete) return;
+  
+    try {
+      const token = localStorage.getItem('token');
+      const res = await authFetch(`http://10.255.255.218:5000/devices/${deviceToDelete}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await res.json();
+      if (res.ok) {
+        toast.success('Device deleted successfully');
+        fetchDevices();
+      } else {
+        toast.error(data.error || 'Failed to delete device');
+      }
+    } catch (error) {
+      console.error('Error deleting device:', error);
+      toast.error('Server connection error');
+    } finally {
+      setShowConfirmModal(false);
+      setDeviceToDelete(null);
+    }
+  };
   
   
 
@@ -199,9 +260,11 @@ function NetworkEquipment() {
                 <button onClick={() => navigate(`/devices/${device.id}`)}>
                   View Profile
                 </button>
-                <button onClick={() => handleDeleteDevice(device.id)} className="delete-device-button">
-                Delete Device
-                </button>
+                {userRole === 'admin' && (
+                  <button onClick={() => confirmDeleteDevice(device.id)} className="delete-device-button">
+                    Delete Device
+                  </button>
+                )}
               </li>
             ))}
           </ul>
@@ -301,7 +364,17 @@ function NetworkEquipment() {
               </label>
               </>
             )}
-
+            {showConfirmModal && (
+                <div className="modal-overlay">
+                  <div className="modal">
+                    <p>Are you sure you want to delete this device?</p>
+                    <div className="modal-buttons">
+                      <button onClick={handleDeleteConfirmed} className="confirm-button">Confirm</button>
+                      <button onClick={() => setShowConfirmModal(false)} className="cancel-button">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              )}
           </div>
         </div>
       </div>

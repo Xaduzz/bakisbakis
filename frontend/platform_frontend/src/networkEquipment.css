@@ -100,4 +100,36 @@
   .update-all-button:hover {
     background-color: #45a049;
   }
+
+  .modal {
+    background-color: #1c1c1c;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  color: #d4f7dc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  min-width: 300px;
+  }
   
+  .modal p {
+    margin-bottom: 20px; 
+  }
+  
+  .modal-buttons {
+    display: flex;
+    gap: 20px; 
+    justify-content: center;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }

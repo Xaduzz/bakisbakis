@@ -228,7 +228,11 @@ function PlaybookManagement() {
             ))}
           </tbody>
         </table>
-        <button onClick={() => setIsCreateModalOpen(true)} className="create-button">Add Configuration</button>
+        {userRole === 'admin' && (
+          <button onClick={() => setIsCreateModalOpen(true)} className="create-button">
+            Add Configuration
+          </button>
+        )}
       </div>
 
       {isEditorOpen && (
@@ -239,9 +243,12 @@ function PlaybookManagement() {
               className="yaml-editor"
               value={editorContent}
               onChange={(e) => setEditorContent(e.target.value)}
+              readOnly={userRole !== 'admin'}
             />
             <div className="modal-actions">
-              <button onClick={savePlaybook} className="save-button">Save</button>
+              {userRole === 'admin' && (
+                <button onClick={savePlaybook} className="save-button">Save</button>
+              )}
               <button onClick={() => setIsEditorOpen(false)} className="cancel-button">Close</button>
             </div>
           </div>
