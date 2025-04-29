@@ -152,6 +152,13 @@ function PlaybookManagement() {
       return;
     }
 
+    //added checking before playbook execution
+    const deviceObj = devices.find(dev => dev.ip_address === selectedDevice); 
+      if (deviceObj && deviceObj.status !== 'active') {
+        toast.error("Device is not active!");
+        return;
+      }
+
     try {
       const token = localStorage.getItem('token');
       const res = await authFetch(`http://10.255.255.218:5000/playbooks/${selectedPlaybook}/execute`, {
@@ -260,16 +267,19 @@ function PlaybookManagement() {
           <div className="modal-content">
             <h3>Execute Playbook: {selectedPlaybook}</h3>
             <label>Select Device:</label>
-              <select value={selectedDevice} onChange={(e) => {
-                setSelectedDevice(e.target.value);
-                console.log("Selected device IP:", e.target.value);
-              }}>
-                <option value="">-- Select a Device --</option>
-                {devices.map(device => (
-                  <option key={device.ip_address} value={device.ip_address}>
-                    {device.name} ({device.ip_address})
-                  </option>
-                ))}
+            <select value={selectedDevice} onChange={(e) => setSelectedDevice(e.target.value)}>
+              <option value="">-- Select a Device --</option>
+              {devices.map(device => (
+                <option
+                  key={device.ip_address}
+                  value={device.status === 'active' ? device.ip_address : ''}
+                  disabled={device.status !== 'active'}
+                >
+                  <span style={{ color: device.status === 'active' ? '#4CAF50' : '#FF5555' }}>
+                    {device.status === 'active' ? '🟢' : '🔴'}
+                 </span> {device.name} ({device.ip_address})
+                </option>
+              ))}
             </select>
             <div className="modal-actions">
               <button onClick={executePlaybook} className="execute-confirm-button">Run</button>

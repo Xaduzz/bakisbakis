@@ -626,6 +626,12 @@ def delete_device(device_id):
     username = request.headers.get('Username', 'Unknown')
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
+    token = request.headers.get('Authorization', '').split(' ')[1]
+    try:
+        decoded_token = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
+        username = decoded_token.get('username')
+    except Exception:
+        username = "Unknown"
 
     try:
         cursor.execute("SELECT name, ip_address FROM network_equipment WHERE id = %s", (device_id,))
